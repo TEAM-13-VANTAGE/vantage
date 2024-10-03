@@ -3,7 +3,8 @@ Small summary on sprint 1
 Team and github repository was created. The applications to be used
 where downloadded in to the devices. THis includes linux, julia, gazebo, and ardupilot.
  
-Tested that the installed apps work properly.
+Tested that the installed apps work properly. I created a small Julia "Cheatsheet" the type you would use to remember or have examples of how to code basics things in a programmihng language in order to be able to reference it for quicker coding pace.
+Julia seems to be a rahter big amalgam of coding languages?, You can cross reference syntax similar to java and c in all the areas.
 
 October 1, 2024    
 Started sprint 2 met with the team.
