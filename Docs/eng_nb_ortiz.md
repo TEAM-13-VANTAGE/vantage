@@ -7,7 +7,7 @@ Tested that the installed apps work properly. I created a small Julia "Cheatshee
 Julia seems to be a rahter big amalgam of coding languages?, You can cross reference syntax similar to java and c in all the areas.
 
 October 1, 2024    
-Started sprint 2 met with the team.
+Started sprint 2 met with the team. Started the Julia installation document.
 
 October 2, 2024     
 Finished julia installing file. Most of the information for it is on the julia website making it easy to access the document.
