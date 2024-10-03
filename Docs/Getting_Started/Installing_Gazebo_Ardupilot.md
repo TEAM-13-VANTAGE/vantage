@@ -143,6 +143,6 @@ The drone should takeoff in Gazebo
 
 ## References: 
 
-- [Ardupilot installation guide](https://github.com/Intelligent-Quads/iq_tutorials/blob/master/docs/Installing_Ardupilot_20_04.md)
+- [ArduPilot installation guide](https://github.com/Intelligent-Quads/iq_tutorials/blob/master/docs/Installing_Ardupilot_20_04.md)
 
 - [Gazebo installation guide](https://github.com/Intelligent-Quads/iq_tutorials/blob/master/docs/installing_gazebo_arduplugin.md)
