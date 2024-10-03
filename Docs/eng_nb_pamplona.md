@@ -1,1 +1,16 @@
+# Jim's Engineering Journal
 
+## Sprint 1 Summary
+During sprint 1, we got familiar with the project scope and looked into the different technologies associated with the project. We are using Julia for the low-fidelity simulation and Gazebo and ArduPilot for the high-fidelity. As I am on a Mac, I installed a VMware in order to set up the programs needed. I then set up Gazebo and ArduPilot to ensure that they are integrated and are communicating properly. 
+
+## Sprint 2
+### 10/1/2024
+- VMware broke, so I had to fix the installation and integration of Gazebo and ArduPilot.
+- Did research on ways we could make the VMware run Gazebo faster, didn't get anywhere.
+- Started new sprint and allocated tasks to everyone.
+- Started researching on Julia and how to create python frontend for simulation controls.
+### 10/3/2024
+- Installed Julia on the VMware (It was really easy, I just had to curl it).
+- Did more research on python frontend.
+- Reviewed GitHub repo with previous documentation that Alejandro shared.
+- Created GitHub engineering journal.
