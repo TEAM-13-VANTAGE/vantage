@@ -1,6 +1,7 @@
 # Jim's Engineering Journal
 
-## Sprint 1 Summary
+## Sprint 1
+### Summary
 During sprint 1, we got familiar with the project scope and looked into the different technologies associated with the project. We are using Julia for the low-fidelity simulation and Gazebo and ArduPilot for the high-fidelity. As I am on a Mac, I installed a VMware in order to set up the programs needed. I then set up Gazebo and ArduPilot to ensure that they are integrated and are communicating properly. 
 
 ## Sprint 2
