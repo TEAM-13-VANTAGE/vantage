@@ -23,8 +23,8 @@ new study problem to investigate: how do you use julia to communicate with ardup
 Use ROS to as a middle man for julia and ardupilot.
 
 goals for the day:
-1) install ROS in the VM
-2) document the ROS
+1) install ROS in the VM (done)
+2) document the ROS installation
 3) create a basic cheatsheet for ROS?
 4) maybe start the process of the development of the ROS integration?
 5) 
