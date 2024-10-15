@@ -13,3 +13,9 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Worked on Gazebo installation documentation <br>
 - Created and started filling out my engineering journal <br>
 
+## Sprint 2 Summary
+- Worked on the harmonic installation documentation but it did not save so I will redo it on 10/15 <br>
+- Due to the hurricane our group members lost power and were unable to work on the project during the whole week <br>
+
+## 10/15/2024
+- Met with group members and TA's in LB131 to catch up on what our new requirements are <br>
