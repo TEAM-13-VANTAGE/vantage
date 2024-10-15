@@ -14,4 +14,4 @@
 
 ## 10/15/2024
 - Met with team and discussed project status after Hurricane Milton
-- Worked with group on the presentation
+- Worked with group on the Sprint 2 presentation
