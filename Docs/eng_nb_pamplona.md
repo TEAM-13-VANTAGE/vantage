@@ -15,3 +15,14 @@ During sprint 1, we got familiar with the project scope and looked into the diff
 - Did more research on python frontend.
 - Reviewed GitHub repo with previous documentation that Alejandro shared.
 - Created GitHub engineering journal.
+### Summary
+Was not able to work due to hurricane and me being at the SASE National Convention. Other members had no power due to the hurricane.
+
+## Sprint 3
+## 10/15/2024
+- VMware broke again, so I will just install Linux, Ubuntu, and Gazebo on my PC, while working with Julia on Mac.
+- Moved all sprint 2 stories and tasks to sprint 3.
+- Working on slides to summarize what we have already completed.
+- 
+
+
