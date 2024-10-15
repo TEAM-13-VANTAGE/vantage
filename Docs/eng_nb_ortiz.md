@@ -19,3 +19,5 @@ hurricane hit and classes got cancelled from OCtober 8th to the 18th. I lost pow
 October 15, 2024
 
 new study problem to investigate: how do you use julia to communicate with ardupilot?
+
+Use ROS to as a middle man for julia and ardupilot.
