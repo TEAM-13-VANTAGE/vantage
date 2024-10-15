@@ -1,6 +1,6 @@
 # Installing Gazebo Harmonic for Ubuntu 22.04
 
-### Steps followed from  <br>
+### Steps followed from https://github.com/Intelligent-Quads/iq_tutorials <br>
 
 Setup your computer to accept software from http://packages.osrfoundation.org:
 ```
