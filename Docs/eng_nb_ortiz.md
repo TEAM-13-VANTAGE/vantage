@@ -27,4 +27,15 @@ goals for the day:
 2) document the ROS installation
 3) create a basic cheatsheet for ROS?
 4) maybe start the process of the development of the ROS integration?
-5) 
+
+
+
+October 20, 2024
+A bit delayed but the documentation for the installation has been created. I managed to investigate and document the installation. The ROS version to be usaed is ROS FOXY.
+
+updating the goal list for the upcoming week:
+1)document the ROSfoxy installation process (Done)
+2)start the integration process of julia and ros
+3)start the integraation of ROS and Gazebo
+4)start the new test process in for the collision test
+
