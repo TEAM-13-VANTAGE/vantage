@@ -55,7 +55,7 @@ source ~/.bashrc
 
 ## Step 6: Install additional Tools
 ```bash
-
+sudo apt install python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 ```
 
 ## Step 7 Verify the Installation
