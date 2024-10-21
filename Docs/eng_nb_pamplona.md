@@ -19,10 +19,15 @@ During sprint 1, we got familiar with the project scope and looked into the diff
 Was not able to work due to hurricane and me being at the SASE National Convention. Other members had no power due to the hurricane.
 
 ## Sprint 3
-## 10/15/2024
+### 10/15/2024
 - VMware broke again, so I will just install Linux, Ubuntu, and Gazebo on my PC, while working with Julia on Mac.
 - Moved all sprint 2 stories and tasks to sprint 3.
 - Working on slides to summarize what we have already completed.
-- 
+### 10/21/2024
+- Got JuliaSim to run!
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/db59acc2-4d9f-4847-923d-39e15bae1a11">
+
+- Beginning frontend work on Python using Flask and basic HTML
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/3029b1c1-1d01-452c-bedf-0acd4a5c3ce2">
 
 
