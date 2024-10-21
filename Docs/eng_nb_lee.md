@@ -15,3 +15,17 @@
 ## 10/15/2024
 - Met with team and discussed project status after Hurricane Milton
 - Worked with group on the Sprint 2 presentation
+
+## 10/21/2024
+- Watched Intelligent Quads youtube videos and followed along to install ROS
+  - ROS Foxy is the latest version that supports Ubuntu 20.04, but it's reached end-of-life and is no longer officially supported
+  - Catkin, the ROS build tool, has issues working because Foxy is end-of-life
+- This gives me a few options: 
+  - Keep trying to get it working on Ubuntu 20.04
+  - Start over with Ubuntu 18.04, which is what the video tutorials use
+  - Start over with Ubuntu 24.04, the newest version of Ubuntu
+- There are some more questions I have: 
+  - There seems to be two ROS versions: ROS 1 and ROS 2. Which one should we use? 
+    - ROS 1 is no longer supported, and is essentially the legacy version (similar to Python before version 3.x.x)
+    - ROS 2 will be supported in the future, but it's a lot newer and the tutorials use ROS 1. 
+    - ROS 2 is not backward compatible with ROS 1. 
