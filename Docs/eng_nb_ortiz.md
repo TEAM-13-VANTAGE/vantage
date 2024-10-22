@@ -39,3 +39,15 @@ updating the goal list for the upcoming week:
 3)start the integraation of ROS and Gazebo
 4)start the new test process in for the collision test
 
+
+
+
+
+
+October 22,2024
+
+researching how Gazzebo workswith ROS in order to progress that part.
+
+FOund this video for that before class:
+https://www.youtube.com/watch?v=laWn7_cj434&ab_channel=ArticulatedRobotics
+
