@@ -19,3 +19,11 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 
 ## 10/15/2024
 - Met with group members and TA's in LB131 to catch up on what our new requirements are <br>
+
+## 10/17/2024
+- Fall break <br>
+
+## 10/22/2024
+- Attended United Airlines info session lecture <br>
+- Met with our PO and GPO to catch up after Fall break <br>
+- Worked on creating presentation slides <br>
