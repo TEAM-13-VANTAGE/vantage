@@ -29,3 +29,13 @@
     - ROS 1 is no longer supported, and is essentially the legacy version (similar to Python before version 3.x.x)
     - ROS 2 will be supported in the future, but it's a lot newer and the tutorials use ROS 1. 
     - ROS 2 is not backward compatible with ROS 1. 
+
+## 10/29/2024
+- We agreed to use Ubuntu 22.04 with the following versions of software: 
+    - ROS 2 Humble Hawksbill
+    - Gazebo Harmonic
+    - ArduPilot (the version we were using works with Gazebo Harmonic)
+- I will write a script to install these dependencies on a base Ubuntu 22.04 system.
+
+## 10/24/2024
+- I created the [script](../Docs/Getting_Started/install_dependencies_22.04.sh) and uploaded it to GitHub under Docs. 
