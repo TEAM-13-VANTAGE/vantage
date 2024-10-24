@@ -51,3 +51,15 @@ researching how Gazzebo workswith ROS in order to progress that part.
 FOund this video for that before class:
 https://www.youtube.com/watch?v=laWn7_cj434&ab_channel=ArticulatedRobotics
 
+
+Appart fromthis the team met up and refactored to see what to work.
+
+
+here are a few things to update teh way to work moving forward:
+
+I need to understand how both the simulators work wiht this I started work on a shell scrypt to run both simulators. 
+instead of rnning it in ros if we run it in shell scryot we can get teh same deal for it.
+
+October 23, 2024
+
+Okay the code shell for the shell scrypt is done I need to try to get it running 9.14pm will keep updating on it.
