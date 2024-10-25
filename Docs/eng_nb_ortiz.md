@@ -63,3 +63,8 @@ instead of rnning it in ros if we run it in shell scryot we can get teh same dea
 October 23, 2024
 
 Okay the code shell for the shell scrypt is done I need to try to get it running 9.14pm will keep updating on it.
+
+
+October 24,2024
+
+Team met up todat the dependancy issues are still at hand. I tried to see if I can run the julia simulator. It has been giving an erros of not finding a file which is weird befcause the file does exist? I have peerred into the issue today for a few hours but no avail yet.
