@@ -27,7 +27,13 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Got JuliaSim to run!
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/db59acc2-4d9f-4847-923d-39e15bae1a11">
 
-- Beginning frontend work on Python using Flask and basic HTML
+- Beginning frontend work on Python using Flask and basic HTML.
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/3029b1c1-1d01-452c-bedf-0acd4a5c3ce2">
+### 10/24/2024
+- Converting from Flask and HTML to pure Python.
+- Attempted to run the preexisting sims created by John, and it said it'll finish in four days...
+<img width="214" alt="image" src="https://github.com/user-attachments/assets/4336f4a1-4e1e-422e-8c76-982e21469de7">
+- Assisting teammates with their ROS issue.
+- Starting SRS v1.
 
 
