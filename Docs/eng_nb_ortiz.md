@@ -44,9 +44,9 @@ updating the goal list for the upcoming week:
 
 
 
-October 22,2024
+October 22, 2024
 
-researching how Gazzebo workswith ROS in order to progress that part.
+researching how Gazzebo works with ROS to progress that part.
 
 FOund this video for that before class:
 https://www.youtube.com/watch?v=laWn7_cj434&ab_channel=ArticulatedRobotics
@@ -57,8 +57,8 @@ Appart fromthis the team met up and refactored to see what to work.
 
 here are a few things to update teh way to work moving forward:
 
-I need to understand how both the simulators work wiht this I started work on a shell scrypt to run both simulators. 
-instead of rnning it in ros if we run it in shell scryot we can get teh same deal for it.
+I need to understand how both the simulators work with this I started work on a shell script to run both simulators. 
+instead of running it in ros if we run it in shell scryot we can get teh same deal for it.
 
 October 23, 2024
 
@@ -67,8 +67,12 @@ Okay the code shell for the shell scrypt is done I need to try to get it running
 
 October 24,2024
 
-Team met up todat the dependancy issues are still at hand. I tried to see if I can run the julia simulator. It has been giving an erros of not finding a file which is weird befcause the file does exist? I have peerred into the issue today for a few hours but no avail yet.
+Team met up today the dependency issues are still at hand. I tried to see if I could run the Julia simulator. It has been giving an erros of not finding a file which is weird because the file does exist. I have peered into the issue today for a few hours but to no avail yet.
 
 
-October 26,2024 
+October 26, 2024 
 the team started working on the SDS document.
+
+
+October 27, 2024
+I returned to try to tets out the Julia programs, but the same issue persisted. There are deprecation notices on some packages.
