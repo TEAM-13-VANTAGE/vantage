@@ -75,4 +75,6 @@ the team started working on the SDS document.
 
 
 October 27, 2024
-I returned to try to tets out the Julia programs, but the same issue persisted. There are deprecation notices on some packages.
+
+
+I returned to try to tets out the Julia programs, but the same issue persisted. There are deprecation notices on some packages. Okay slight update, some code is running in linux Julia but not in vscode. I will run through the code tomorrow to check and see what exactly is hitting the errors. This way i can finaly work on the low fidelity simulator.
