@@ -57,17 +57,17 @@ Appart fromthis the team met up and refactored to see what to work.
 
 here are a few things to update teh way to work moving forward:
 
-I need to understand how both the simulators work with this I started work on a shell script to run both simulators. 
-instead of running it in ros if we run it in shell scryot we can get teh same deal for it.
+I need to understand how both simulators work, so I started working on a shell script to run both simulators. 
+instead of running it in ros if we run it in shell script we can get teh same deal for it.
 
 October 23, 2024
 
-Okay the code shell for the shell scrypt is done I need to try to get it running 9.14pm will keep updating on it.
+Okay, the code shell for the shell script is almost done I need to try to get it running 9.14 pm will keep updating on it.
 
 
 October 24,2024
 
-Team met up today the dependency issues are still at hand. I tried to see if I could run the Julia simulator. It has been giving an erros of not finding a file which is weird because the file does exist. I have peered into the issue today for a few hours but to no avail yet.
+The team met today, but the dependency issues are still at hand. I tried to see if I could run the Julia simulator. It has been giving an error of not finding a file, which is weird because the file does exist. I have peered into the issue today for a few hours, but to no avail yet.
 
 
 October 26, 2024 
@@ -77,4 +77,11 @@ the team started working on the SDS document.
 October 27, 2024
 
 
-I returned to try to tets out the Julia programs, but the same issue persisted. There are deprecation notices on some packages. Okay slight update, some code is running in linux Julia but not in vscode. I will run through the code tomorrow to check and see what exactly is hitting the errors. This way i can finaly work on the low fidelity simulator.
+I returned to try to test out the Julia programs, but the same issue persisted. There are deprecation notices on some packages. Okay, slight update: Some code is running in Linux Julia but not in VS code. I will run through the code tomorrow to check and see what exactly is hitting the errors. This way, I can finally work on the low-fidelity simulator.
+
+
+October 28, 2024
+
+More SRS documentation: chapter for req worked on.
+need to check up on updating this.
+I might need to ask about what requirements are in our project scope or what was in previous project scopes.
