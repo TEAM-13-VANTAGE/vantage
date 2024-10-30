@@ -38,4 +38,14 @@
 - I will write a script to install these dependencies on a base Ubuntu 22.04 system.
 
 ## 10/24/2024
-- I created the [script](../Docs/Getting_Started/install_dependencies_22.04.sh) and uploaded it to GitHub under Docs. 
+- I created the [script](../Docs/Getting_Started/install_dependencies_22.04.sh) and uploaded it to GitHub under Docs
+
+## 10/26/2024
+- Worked on the SRS with Jim and Jona
+
+## 10/29/2024
+- Worked on the SRS with everyone else 
+- Mai sent me a [robostack](https://robostack.github.io), which lets us use ROS 1 Noetic on Ubuntu 22.04
+  - ROS 2 Noetic isn't officially supported on Ubuntu 22.04, so this is a major help
+  - Now, we can bridge some of our dependency issues and get Gazebo 11 and ArduPilot working with Ros 1 Noeti
+- Worked on the install script to install Ros 1 Noetic instead of Ros 2 Humble
