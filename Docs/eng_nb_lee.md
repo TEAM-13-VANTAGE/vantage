@@ -47,5 +47,5 @@
 - Worked on the SRS with everyone else 
 - Mai sent me a [robostack](https://robostack.github.io), which lets us use ROS 1 Noetic on Ubuntu 22.04
   - ROS 2 Noetic isn't officially supported on Ubuntu 22.04, so this is a major help
-  - Now, we can bridge some of our dependency issues and get Gazebo 11 and ArduPilot working with Ros 1 Noeti
+  - Now, we can bridge some of our dependency issues and get Gazebo 11 and ArduPilot working with Ros 1 Noetic
 - Worked on the install script to install Ros 1 Noetic instead of Ros 2 Humble
