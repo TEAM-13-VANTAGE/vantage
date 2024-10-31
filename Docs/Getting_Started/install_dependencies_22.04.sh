@@ -87,5 +87,5 @@ echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
 echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
 
 echo "# Reboot your computer for SITL to work #"
-echo "# use `mamba activate ros_env` to use ROS Noetic #"
-echo 'echo "# use `mamba activate ros_env` to use ROS Noetic #"' >> ~/.bashrc
+echo "# use \"mamba activate ros_env\" to use ROS Noetic #"
+echo 'echo "# use \"mamba activate ros_env\" to use ROS Noetic #"' >> ~/.bashrc
