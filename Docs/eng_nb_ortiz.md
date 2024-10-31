@@ -85,3 +85,12 @@ October 28, 2024
 More SRS documentation: chapter for req worked on.
 need to check up on updating this.
 I might need to ask about what requirements are in our project scope or what was in previous project scopes.
+
+
+October 29, 2024
+
+The team met up and uploaded the SRS clearing a few questions in class.
+
+
+October 31, 2024
+
