@@ -29,11 +29,29 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 
 - Beginning frontend work on Python using Flask and basic HTML.
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/3029b1c1-1d01-452c-bedf-0acd4a5c3ce2">
+
 ### 10/24/2024
 - Converting from Flask and HTML to pure Python.
 - Attempted to run the preexisting sims created by John, and it said it'll finish in four days...
 <img width="214" alt="image" src="https://github.com/user-attachments/assets/4336f4a1-4e1e-422e-8c76-982e21469de7">
 - Assisting teammates with their ROS issue.
 - Starting SRS v1.
+
+### 10/29/2024
+- Completed the Use Case, Scenarios, and DFDs for the SRS v1.
+<img width="343" alt="image" src="https://github.com/user-attachments/assets/9d9e2089-a5dc-4a61-83a7-30c416c78e07">
+<img width="480" alt="image" src="https://github.com/user-attachments/assets/02bb521d-278e-4874-9032-42729a453e08">
+<img width="494" alt="image" src="https://github.com/user-attachments/assets/349256b3-66d0-4bbe-95ec-0585f1e3e7cf">
+- Submitted SRS v1.
+- Did our stand up to begin the next sprint.
+### 10/31/2024
+- Beginning SDS v1.
+- Working on researching more on python front-end.
+- Coordinating interview with Dr. Akbas and Alejandro
+
+
+
+
+
 
 
