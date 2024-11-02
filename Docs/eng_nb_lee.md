@@ -49,3 +49,8 @@
   - ROS 2 Noetic isn't officially supported on Ubuntu 22.04, so this is a major help
   - Now, we can bridge some of our dependency issues and get Gazebo 11 and ArduPilot working with Ros 1 Noetic
 - Worked on the install script to install Ros 1 Noetic instead of Ros 2 Humble
+
+## 11/1/2024
+- Investigated Gazebo build error and made a post on Robotics Stack Exchange for help
+- Tried the script on Ubuntu 22.04 and 22.04
+- no success with building Gazebo 11 so far
