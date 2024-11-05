@@ -54,3 +54,10 @@
 - Investigated Gazebo build error and made a post on Robotics Stack Exchange for help
 - Tried the script on Ubuntu 22.04 and 22.04
 - no success with building Gazebo 11 so far
+
+## 11/4/2024
+ - Interviewed Dr. Akbas with Jona and wrote a transcript of questions and answers
+ - Researched tutorials and resources for using modern versions of Gazebo, Ubuntu, and ROS 2
+
+## 11/5/2024
+ - Worked on SDD
