@@ -94,3 +94,15 @@ The team met up and uploaded the SRS clearing a few questions in class.
 
 October 31, 2024
 
+Regular group meeting, the SDD workload was divided and re-evaluated the way we worked.
+
+November 3, 2024
+
+Worked in SDD part 5.
+November 4, 20244
+
+During the interview with Dr. Akbas, many points were made that should help guide the direction and development of the project for the rest of the semester.
+
+November 5, 2024
+The VAntage group meet to finalize the SDD document.  
+
