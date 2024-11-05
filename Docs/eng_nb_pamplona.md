@@ -37,6 +37,7 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Assisting teammates with their ROS issue.
 - Starting SRS v1.
 
+## Sprint 4
 ### 10/29/2024
 - Completed the Use Case, Scenarios, and DFDs for the SRS v1.
 <img width="343" alt="image" src="https://github.com/user-attachments/assets/9d9e2089-a5dc-4a61-83a7-30c416c78e07">
@@ -49,6 +50,12 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Beginning SDS v1.
 - Working on researching more on python front-end.
 - Coordinating interview with Dr. Akbas and Alejandro
+
+### 11/05/2024
+- Created questions for interview with Akbas.
+- Completed SDD v1 sections 4 and 5.
+- Assisting team members for SDD.
+- Assisting members for ROS and Gazebo integration.
 
 
 
