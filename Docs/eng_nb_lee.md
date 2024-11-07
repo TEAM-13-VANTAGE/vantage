@@ -61,3 +61,7 @@
 
 ## 11/5/2024
  - Worked on SDD
+ - <img alt="AAAAAAAAHHHHHHH" src="https://i.pinimg.com/originals/f5/ef/50/f5ef5000641ee61a1866e04430db71fd.gif">
+
+## 11/7/2024
+ - Installed Ubuntu 25.04 and started making a script to install Gazebo Harmonic and ROS 2 Jazzy
