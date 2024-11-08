@@ -64,4 +64,10 @@
  - <img alt="AAAAAAAAHHHHHHH" src="https://i.pinimg.com/originals/f5/ef/50/f5ef5000641ee61a1866e04430db71fd.gif">
 
 ## 11/7/2024
- - Installed Ubuntu 25.04 and started making a script to install Gazebo Harmonic and ROS 2 Jazzy
+ - Installed Ubuntu 24.04 and started making a script to install Gazebo Harmonic and ROS 2 Jazzy
+ - Realized ArduPilot isn't compatible with 24.04 because it only works with Ros 2 Humble
+ - Restarted on Ubuntu 22.04 and made four scripts to install everything
+ - They worked for me, so I started a fresh VM to test them
+ - I'll keep remaking a fresh VM and testing the scripts until they work first try from scratch
+ - I also want to determine how long it takes to install everything and how much storage it takes
+ - I'll do all that tomorrow
