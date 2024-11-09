@@ -71,3 +71,9 @@
  - I'll keep remaking a fresh VM and testing the scripts until they work first try from scratch
  - I also want to determine how long it takes to install everything and how much storage it takes
  - I'll do all that tomorrow
+
+ ## 11/9/2024
+ - Tested the installation using my scripts and fixed a couple of typos and convenience issues
+ - It took 1hr and 3 minutes the first time, and 56 minutes the second time
+ - Both installations took about 11Gb of storage
+ - I'll document how to run the scripts tomorrow, but it's self explanatory if anyone wants to try it themselves
