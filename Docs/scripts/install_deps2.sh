@@ -20,7 +20,7 @@ cd ~/ardu_ws
 source /opt/ros/humble/setup.bash
 sudo apt update -y
 rosdep update
-rosdep install --from-paths src --ignore-src -r
+rosdep install --from-paths src --ignore-src -r -y
 
 # Build ArduPilot Plugin for Gazebo
 echo "# Building ArduPilot Plugin for Gazebo #"
@@ -37,4 +37,4 @@ colcon test-result --all --verbose
 # Launch Gazebo
 echo "# The installation is complete! #"
 echo "# Run the following command to launch Gazebo: #"
-echo "# ros2 launch ardupilot_gz_bringup #" iris_runway.launch.py
+echo "# ros2 launch ardupilot_gz_bringup iris_runway.launch.py #"
