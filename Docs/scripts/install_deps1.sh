@@ -4,15 +4,15 @@
 
 # Install ROS 2 Humble
 echo "# Installing ROS 2 Humble #"
-sudo apt install software-properties-common git cmake curl
+sudo apt install software-properties-common git cmake curl -y
 sudo add-apt-repository universe
 sudo apt update && sudo apt install curl -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-sudo apt update
-sudo apt upgrade
-sudo apt install ros-humble-desktop
-sudo apt install ros-dev-tools
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install ros-humble-desktop -y
+sudo apt install ros-dev-tools -y
 source /opt/ros/humble/setup.bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 sudo rosdep init
@@ -23,11 +23,11 @@ mkdir -p ~/ardu_ws/src
 cd ~/ardu_ws
 vcs import --recursive --input  https://raw.githubusercontent.com/ArduPilot/ardupilot/master/Tools/ros2/ros2.repos src
 cd ~/ardu_ws
-sudo apt update
+sudo apt update -y
 rosdep update
 source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
-sudo apt install default-jre
+sudo apt install default-jre -y
 cd ~/ardu_ws
 git clone --recurse-submodules https://github.com/ardupilot/Micro-XRCE-DDS-Gen.git
 cd Micro-XRCE-DDS-Gen
@@ -36,7 +36,7 @@ echo "export PATH=$PATH:$PWD/scripts" >> ~/.bashrc
 source ~/.bashrc
 export PATH=$PATH:$PWD/scripts
 microxrceddsgen -help
-sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-pygame
+sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-pygame -y
 pip3 install PyYAML mavproxy --user
 pip3 install mavproxy pymavlink --user --upgrade
 echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
