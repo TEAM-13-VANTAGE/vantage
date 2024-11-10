@@ -2,6 +2,8 @@
 
 This guide will walk through each step of installing the project dependencies. To ease a complicated dependency installation process, we have written some bash scripts that will install ROS 2 Humble, ArduPilot, SITL, and Gazebo Harmonic automatically. 
 
+**This process takes about 50 minutes and 11GB of storage**
+
 > Due to the way dependencies work between ArduPilot, ROS 2, and Gazebo, ***this project and its dependencies can only be installed on an Ubuntu 22.04 system***
 
 ## Installation
