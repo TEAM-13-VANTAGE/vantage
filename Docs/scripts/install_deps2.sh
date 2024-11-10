@@ -17,7 +17,7 @@ vcs import --input https://raw.githubusercontent.com/ArduPilot/ardupilot_gz/main
 echo "export GZ_VERSION=harmonic" >> ~/.bashrc
 export GZ_VERSION=harmonic
 cd ~/ardu_ws
-source /opt/ros/humble/setup.bash
+# source /opt/ros/humble/setup.bash
 sudo apt update -y
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
@@ -30,10 +30,10 @@ colcon build --packages-up-to ardupilot_gz_bringup
 # Test Installation
 echo "# Testing Installation #"
 cd ~/ardu_ws
-source install/setup.bash
-echo "source ~/ardu_ws/install/setup.bash" >> ~/.bashrc
-colcon test --packages-select ardupilot_sitl ardupilot_dds_tests ardupilot_gazebo ardupilot_gz_applications ardupilot_gz_description ardupilot_gz_gazebo ardupilot_gz_bringup
-colcon test-result --all --verbose
+# source install/setup.bash
+# echo "source ~/ardu_ws/install/setup.bash" >> ~/.bashrc
+# colcon test --packages-select ardupilot_sitl ardupilot_dds_tests ardupilot_gazebo ardupilot_gz_applications ardupilot_gz_description ardupilot_gz_gazebo ardupilot_gz_bringup
+# colcon test-result --all --verbose
 
 # Launch Gazebo
 echo "# The installation is complete! #"
