@@ -77,3 +77,6 @@
  - It took 1hr and 3 minutes the first time, and 56 minutes the second time
  - Both installations took about 11Gb of storage
  - I'll document how to run the scripts tomorrow, but it's self explanatory if anyone wants to try it themselves
+
+ ## 11/10/2024
+ - wrote documentation for running the installation scripts
