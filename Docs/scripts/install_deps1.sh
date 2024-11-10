@@ -25,7 +25,7 @@ vcs import --recursive --input  https://raw.githubusercontent.com/ArduPilot/ardu
 cd ~/ardu_ws
 sudo apt update -y
 rosdep update
-# source /opt/ros/humble/setup.bash
+source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 sudo apt install default-jre -y
 cd ~/ardu_ws
@@ -53,10 +53,10 @@ echo "source ~/ardu_ws/install/setup.bash" >> ~/.bashrc
 
 # Install SITL
 echo "# Installing SITL #"
-# source /opt/ros/humble/setup.bash
+source /opt/ros/humble/setup.bash
 cd ~/ardu_ws/
 colcon build --packages-up-to ardupilot_sitl
-# source install/setup.bash
+source install/setup.bash
 echo "# ROS 2 Humble, ArduPilot, and SITL are now installed #"
 echo "# Perform the following steps to continue with the dependency installation #"
 echo "# Start SITL by running 'launch_sitl.sh' in one terminal #"
