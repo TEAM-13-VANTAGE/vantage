@@ -57,6 +57,15 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Assisting team members for SDD.
 - Assisting members for ROS and Gazebo integration.
 
+### 11/07/2024
+- Completed Small update slides
+- Ended sprint!
+
+## Sprint 5
+### 11/12/2024
+- Updated small update slides
+- ROS, Gazebo, and Ardupilot up and running on PC WOOHOOO!!!!
+
 
 
 
