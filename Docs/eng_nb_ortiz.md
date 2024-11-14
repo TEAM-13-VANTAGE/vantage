@@ -106,3 +106,7 @@ During the interview with Dr. Akbas, many points were made that should help guid
 November 5, 2024
 The VAntage group meet to finalize the SDD document.  
 
+
+NOV 8 and 12th, 2024
+Presentations ran in class
+
