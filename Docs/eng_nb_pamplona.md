@@ -62,9 +62,22 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Ended sprint!
 
 ## Sprint 5
-### 11/12/2024
-- Updated small update slides
+### 11/12/2024 
+- Updated small update slides and presented
+- Created prototype of Front-end on Figma
+- https://www.figma.com/design/3LFUXZGglFq9kiKeomucW9/VANTAGE?node-id=0-1&t=2cAi4HDekWI6eR28-1
 - ROS, Gazebo, and Ardupilot up and running on PC WOOHOOO!!!!
+
+### 11/14/2024
+- Not much updates, was out of class due to sickness
+- Did more during the weekend, began Python frontend. 
+
+### 11/19/2024
+- Python frontend draft fianlly working for Julia!
+<img width="1105" alt="image" src="https://github.com/user-attachments/assets/e69b728e-b29f-42f5-8e05-ad501ba23a1a">
+
+- Testing simulations for Julia and trying to understand how it works.
+
 
 
 
