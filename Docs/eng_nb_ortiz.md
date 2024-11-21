@@ -108,5 +108,16 @@ The VAntage group meet to finalize the SDD document.
 
 
 NOV 8 and 12th, 2024
-Presentations ran in class
+Presentations ran in class.
+
+
+A brief update on NOV 14, 2024
+
+Meetup and updated the teacher
+
+Nov 18th, 2024
+Worked a bit on the SDD
+
+Nov20, 2024
+Abit more work on SDD
 
