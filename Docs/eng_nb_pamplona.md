@@ -78,6 +78,14 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 
 - Testing simulations for Julia and trying to understand how it works.
 
+### 11/21/2024
+- Met with John to understand the results
+- Was able to run simulations in parallel! Ran very fast :)
+- Completed SDD and Poster
+
+### 11/26/2024
+- Completed SRS v2
+- Talked with Dr. Akbas and Alejandro regarding future of project
 
 
 
