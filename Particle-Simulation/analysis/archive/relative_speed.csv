@@ -1,0 +1,5 @@
+,scenario,-22.0 (fps),-14.67 (fps),-7.33 (fps),0.0 (fps),7.33 (fps),14.67 (fps),22.0 (fps)
+0,Headon Norm Horizontal Violations,5100.0,5800.0,6500.0,7900.0,8600.0,9300.0,9300.0
+1,Headon Norm Vertical Violations,4400.0,4400.0,4400.0,4400.0,4400.0,4400.0,4400.0
+2,Overtaking Norm Horizontal Violations,7200.0,7200.0,7900.0,7200.0,6500.0,6500.0,5800.0
+3,Overtaking Norm Vertical Violations,3000.0,3000.0,3700.0,3700.0,3700.0,3000.0,3000.0

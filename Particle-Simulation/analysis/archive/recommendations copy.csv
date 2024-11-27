@@ -1,0 +1,13 @@
+,scenario,rd_low,rd_high,rd_worst
+0,Converging Adverse Horizontal Violations,2000.0,-1.0,
+1,Converging Adverse Vertical Violations,2000.0,2000.0,
+2,Converging Norm Horizontal Violations,2000.0,-1.0,
+3,Converging Norm Vertical Violations,4000.0,4000.0,
+4,Headon Adverse Horizontal Violations,,-1.0,
+5,Headon Adverse Vertical Violations,,5900.0,
+6,Headon Norm Horizontal Violations,7500.0,-1.0,
+7,Headon Norm Vertical Violations,,5800.0,
+8,Overtaking Adverse Horizontal Violations,,-1.0,
+9,Overtaking Adverse Vertical Violations,,4300.0,
+10,Overtaking Norm Horizontal Violations,7100.0,-1.0,
+11,Overtaking Norm Vertical Violations,5600.0,4200.0,6200.0

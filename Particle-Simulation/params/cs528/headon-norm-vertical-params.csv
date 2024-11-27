@@ -1,0 +1,8 @@
+param_name,start,stop,steps,unit
+drone_speed,30.0,50.0,5,mph
+heli_speed,100.0,125.0,5,mph
+drone_x_pos,11900.0,11900.0,0,feet
+drone_y_pos,4500.0,7500.0,3,feet
+drone_ascent_rate,8.0,28.0,5,fps
+drone_response_distance,4000.0,10000.0,5,feet
+drone_direction,180.0,180.0,0,degrees

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>Run Julia Simulation</h1>
+    <button id="run-simulation">Run Simulation</button>
+    <pre id="output"></pre>
+
+    <script>
+        $(document).ready(function() {
+            $("#run-simulation").click(function() {
+                $("#output").text("Running simulation...");
+                $.post("/run-julia", function(data) {
+                    if (data.status === "success") {
+                        $("#output").text(data.output);
+                    } else {
+                        $("#output").text("Error: " + data.output);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

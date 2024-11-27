@@ -1,0 +1,8 @@
+param_name,unit,values+
+drone_speed,mph,35.0,38.0,41.0
+heli_speed,mph,105.0,115.0,125.0
+drone_response_distance,feet,4308.0
+drone_turn_rate,degrees,6.0,13.0,20.0
+flight_index,index,1
+heli_shift,%,-1.1
+heli_path_index,index,4.0

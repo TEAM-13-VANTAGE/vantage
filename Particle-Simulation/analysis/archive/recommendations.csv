@@ -1,0 +1,7 @@
+,scenario,rd_low,rd_high,rd_worst
+0,Converging Norm Horizontal Violations,3000,-1,5100
+1,Converging Norm Vertical Violations,6500,3000,
+2,Headon Norm Horizontal Violations,7900,-1,10000
+3,Headon Norm Vertical Violations,9300,4400,10000
+4,Overtaking Norm Horizontal Violations,7200,-1,9300
+5,Overtaking Norm Vertical Violations,5800,3700,6500
