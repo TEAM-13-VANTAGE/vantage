@@ -80,3 +80,13 @@
 
  ## 11/10/2024
  - wrote documentation for running the installation scripts
+
+ ## 11/20/2024
+ - worked on creating graphics for the Poster v1
+ - wrote Methodology section for Poster v1
+ - helped arrange elements on Poster v1
+
+## 11/25/2024
+ - Read SRS v1 feedback
+ - Removed sections of the SRS that were not applicable for our project
+ - Modified wording to address feedback in sections 1.1, 1.5.2, 2.1, 2.7, and 4.3
