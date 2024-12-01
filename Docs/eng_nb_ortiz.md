@@ -120,4 +120,11 @@ Worked a bit on the SDD
 
 Nov20, 2024
 Abit more work on SDD
+November 26, 2024
+readfeedback for SRS and meet with Product owner talked about future goals and whata is to be done for the rest of the semester.
 
+November 28 no class
+
+12/1/2024
+
+trying to get LIDAR to work. running through some debug of ardupilot sitl.
