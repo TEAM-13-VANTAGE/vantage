@@ -97,3 +97,7 @@
 
  ## 12/2/2024
   - Worked on script and slides for 10 minute video with Jona
+
+  ## 12/3/2024
+   - Completed script for 10 minute video
+   - Arranged and created slides to follow the script
