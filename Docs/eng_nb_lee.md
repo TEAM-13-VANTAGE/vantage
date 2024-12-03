@@ -30,7 +30,7 @@
     - ROS 2 will be supported in the future, but it's a lot newer and the tutorials use ROS 1. 
     - ROS 2 is not backward compatible with ROS 1. 
 
-## 10/29/2024
+## 10/22/2024
 - We agreed to use Ubuntu 22.04 with the following versions of software: 
     - ROS 2 Humble Hawksbill
     - Gazebo Harmonic
