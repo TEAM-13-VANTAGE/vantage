@@ -90,3 +90,10 @@
  - Read SRS v1 feedback
  - Removed sections of the SRS that were not applicable for our project
  - Modified wording to address feedback in sections 1.1, 1.5.2, 2.1, 2.7, and 4.3
+
+## 12/1/2024
+ - Started 10 minute video slides
+ - Worked on script for the video following the rubric
+
+ ## 12/2/2024
+  - Worked on script and slides for 10 minute video with Jona
