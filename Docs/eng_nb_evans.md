@@ -34,3 +34,56 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 ## 10/24/2024
 - Attempted to trouble shoot ROS installation in order to launch the drone swarm in Gazebo (still running into issues and will be putting this on hold to prioritize working on the SRS doc) <br>
 - Met with PO about what our requirments should be overall for the project and asked what version of ROS they used since the one in the tutorials is incompatible with Ubuntu 22.04 and is also end of life <br>
+
+## 10/29/2024
+- Team met up in LB 374 to finish working on the SRS <br>
+- Jack and I researched ways to fix our dependecy issues and hopefully found a solution that we will try to implement <br>
+- Planned on dividing up the SDD document into sections prior to working on them so that everyone knows what section to work on <br>
+
+## 10/31/2024
+- Started working on SDD v1 <br>
+- Planned an interview with PO to ask questions related to the project like requirments and scope <br>
+
+## 11/4/2024
+- Added some questions to the list for the interview with PO <br>
+
+## 11/5/2024
+- Met up with team in a study room to work on completing the SDD (only for the due date to be extended after grinding) <br>
+
+## 11/6/2024 
+- Worked on our slide update presentation <br>
+
+## 11/7/2024
+- Updated some of the slides for our presentation <br>
+- Helped Jack with Ardupilot configuration (bro was using the wrong ubuntu version) <br>
+- Watched other groups present their slides <br>
+
+## 11/12/2024
+- Presented our slides to the class <br>
+
+## 11/14/2024
+- Met with team to start brainstorming our poster <br>
+- Talked with Clay about the difference between nonfunctional and functional requirments and how to implement them <br>
+- Asked our TA about if there were any non-functional requirments they would like us to include: <br>
+    - "Akbas said he will think about it so we can fill it out <br>
+          -security is not a priority because it's research focused <br>
+          -we can talk about usability/availability <br>
+          -open source is a requirement <br>
+    - He said he's more focused on the deadline right now" <br>
+
+## 11/19/2024 
+- Started working on the poster and divided up sections between the team <br>
+
+## 11/21/2024
+- Continued working on the poster - I did problem statement, background, references and acknowledgements and edited a template to create one for us to use in ppt <br>
+
+## 11/26/2024
+- Wasn't feeling up to meeting but Jack and I worked on the SRS v2 after reading some of the feedback before class time <br>
+
+## 12/3/2024
+- Jack and I went to Michael's to pick up poster boards for our team's poster <br>
+- Also picked up poster's for team 1 and 8 <br>
+- Team worked on 10 min presentation assignment <br>
+- Talked with team over discord instead of in person because I feel sick and don't want to get them sick (Jack and I are roommates so I'm hoping I don't get him sick) <br>
+
+
