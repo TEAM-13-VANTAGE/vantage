@@ -85,5 +85,9 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Also picked up poster's for team 1 and 8 <br>
 - Team worked on 10 min presentation assignment <br>
 - Talked with team over discord instead of in person because I feel sick and don't want to get them sick (Jack and I are roommates so I'm hoping I don't get him sick) <br>
+- Started on the Test Plan Doc., editing the title, version, distribution list, and sections 1.1, 1.2, 1.3, 1.7 <br>
+
+## 12/4/2024
+- Worked on Test Plan Doc., editing sections 1.7, 1.4, 1.5, 1.6 <br>
 
 
