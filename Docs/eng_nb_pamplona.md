@@ -74,7 +74,7 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 
 ### 11/19/2024
 - Python frontend draft fianlly working for Julia!
-<img width="1105" alt="image" src="https://github.com/user-attachments/assets/e69b728e-b29f-42f5-8e05-ad501ba23a1a">
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/e69b728e-b29f-42f5-8e05-ad501ba23a1a">
 
 - Testing simulations for Julia and trying to understand how it works.
 
@@ -86,6 +86,15 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 ### 11/26/2024
 - Completed SRS v2
 - Talked with Dr. Akbas and Alejandro regarding future of project
+
+## Sprint 6
+### 12/3/2024
+- Worked on 10-minute Video presentation
+- Finalized Poster v2
+- Started researching on Drone Swarming, still no progress as all videos/documentation are outdated.
+- Got LiDAR Working!
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/753248d6-76df-49e9-8533-c3136d62a65e">
+
 
 
 
