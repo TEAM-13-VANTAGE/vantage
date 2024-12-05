@@ -127,4 +127,22 @@ November 28 no class
 
 12/1/2024
 
-trying to get LIDAR to work. running through some debug of ardupilot sitl.
+trying to get LIDAR to work. running through some debug of Ardupilot sitl. Could not get it online
+
+12/3/2024
+
+Started 10min presentation work, testing document and last meetup in the classroom
+
+12/4/2024
+
+presentation recording finished, more work on testing document
+
+
+12/5/2024
+
+The final presentation is today. Poster presentation we will see how it goes.
+
+
+
+
+
