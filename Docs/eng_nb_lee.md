@@ -38,7 +38,7 @@
 - I will write a script to install these dependencies on a base Ubuntu 22.04 system.
 
 ## 10/24/2024
-- I created the [script](../Docs/Getting_Started/install_dependencies_22.04.sh) and uploaded it to GitHub under Docs
+- I created the [script](scripts/install_deps1.sh) and uploaded it to GitHub under Docs
 
 ## 10/26/2024
 - Worked on the SRS with Jim and Jona
@@ -95,9 +95,14 @@
  - Started 10 minute video slides
  - Worked on script for the video following the rubric
 
- ## 12/2/2024
-  - Worked on script and slides for 10 minute video with Jona
+## 12/2/2024
+ - Worked on script and slides for 10 minute video with Jona
 
-  ## 12/3/2024
-   - Completed script for 10 minute video
-   - Arranged and created slides to follow the script
+## 12/3/2024
+ - Completed script for 10 minute video
+ - Arranged and created slides to follow the script
+ - Bought poster board for groups 13, 8, and 1
+
+## 12/4/2024
+ - Worked on sections of the STP
+ - Recorded slides for the 10-minute video presentation
