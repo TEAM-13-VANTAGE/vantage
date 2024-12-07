@@ -106,3 +106,8 @@
 ## 12/4/2024
  - Worked on sections of the STP
  - Recorded slides for the 10-minute video presentation
+
+## 12/5/2024
+ - Presented with the other groups in Lehman Atrium
+ - Dr. T gave me a cookie :D
+ - Mostly positive feedback, Dr. Akbas mentioned to emphasize the open-source nature in the future
