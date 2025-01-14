@@ -111,3 +111,9 @@
  - Presented with the other groups in Lehman Atrium
  - Dr. T gave me a cookie :D
  - Mostly positive feedback, Dr. Akbas mentioned to emphasize the open-source nature in the future
+
+## 1/14/2024
+ - Added Jira tasks for Environmental, Economic, Social, and Cultural Effects
+    - I will work on the Economic Effects section
+ - Met with team to discuss future work with the project
+    - Mai and I will work on the Julia side, Jim and Jona are switching to the Gazebo side
