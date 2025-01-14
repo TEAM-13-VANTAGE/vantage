@@ -90,4 +90,10 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 ## 12/4/2024
 - Worked on Test Plan Doc., editing sections 1.7, 1.4, 1.5, 1.6 <br>
 
+## 1/14/2025
+- Reevaluated group roles <br>
+- Met with PO and TA <br>
+- Assigned new SRS effect tasks <br>
+- Created backup plan <br>
+
 
