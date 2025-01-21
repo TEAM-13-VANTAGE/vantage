@@ -142,6 +142,15 @@ presentation recording finished, more work on testing document
 
 The final presentation is today. Poster presentation we will see how it goes.
 
+okay I have forgotten sllightly to update the engineering notebook here are a few updates:
+
+new semester started the 10th of january mostly consisted on breaking down what we neeeded to do for the rest of the semesters in a presentation
+given by the teachers.
+
+the following week (14th and 16th) consisted on checking requirements of the what we need to do or update that be the Jira backlog or having work done on the back log of the gazebo classic. We managed to implement one and two drone swarm.
+Jim managed to get Lidar working I will ask him more about it tomorrow (today is the 20th). The other thing is getting a vm dedicated to crafting the current working position. Other than this I don't know what else we need to work on. Documentation definitely needs to be updated with the new requirements given.
+
+
 
 
 
