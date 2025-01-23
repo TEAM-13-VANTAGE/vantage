@@ -117,7 +117,7 @@ class SimulationApp(QWidget):
             try:
                 julia.Julia(compiled_modules=False)  # Initialize Julia
                 Main.eval('using Pkg')
-                main.eval('Pkg.activate(".")')
+                Main.eval('Pkg.activate(".")')
                 Main.include("Particle-Simulation/src/main.jl")
                 Main.include("Particle-Simulation/test.jl")
                 self.julia_initialized = True
