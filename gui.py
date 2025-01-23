@@ -63,7 +63,7 @@ class SimulationApp(QWidget):
         """Creates labeled input fields for simulation parameters."""
         # Define parameters based on the selected option
         if option_selected == "Vertical":
-            params = ["Drone Speed", "Heli Speed", "Drone X Position", "Drone Y Position", "Drone Direction", "Response Distance", "Ascent Rate"]
+            params = ["drone_speed", "heli_speed", "drone_x_pos", "drone_y_pos", "drone_direction", "drone_response_distance", "drone_ascent_rate"]
         elif option_selected == "Row":
             params = ["drone_speed", "heli_speed", "drone_x_pos", "drone_y_pos", "drone_direction", "drone_response_distance", "drone_horizontal_turn_rate", "drone_horizontal_turn_angle", "force_right_turn"]
         elif option_selected == "Horizontal":
@@ -117,7 +117,8 @@ class SimulationApp(QWidget):
             try:
                 julia.Julia(compiled_modules=False)  # Initialize Julia
                 Main.eval('using Pkg')
-                Main.eval('Pkg.activate(".")')
+                Main.eval('Pkg.activate("./Particle-Simulation")')
+                Main.eval('Pkg.instantiate()')
                 Main.include("Particle-Simulation/src/main.jl")
                 Main.include("Particle-Simulation/test.jl")
                 self.julia_initialized = True
