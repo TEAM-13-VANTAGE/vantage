@@ -113,3 +113,5 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 
 ## 1/28/2025
 - Met with PO and TA <br>
+- Got Julia to work on my PC <br>
+- Communicated with team about next steps <br>
