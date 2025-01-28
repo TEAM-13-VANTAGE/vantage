@@ -117,3 +117,19 @@
     - I will work on the Economic Effects section
  - Met with team to discuss future work with the project
     - Mai and I will work on the Julia side, Jim and Jona are switching to the Gazebo side
+
+## 1/16/2025
+ - Worked on getting Julia to work for my computer
+ - Gazebo is now working with two drones!!!
+
+## 1/21/2025
+ - Worked more on getting Julia to work on my computer
+ - Contacted John to help, he will meet us on Thursday
+
+## 1/23/2025
+ - Worked with John to get Julia working on my computer
+ - Julia works now! 
+
+## 1/28/2025
+ - Helped Mai get Julia working on her computer
+ - Started working on head-on collisions in Julia
