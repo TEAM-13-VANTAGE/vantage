@@ -96,4 +96,20 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Assigned new SRS effect tasks <br>
 - Created backup plan <br>
 
+## 1/17/2025
+- Met with PO and TA <br>
+- Installed Julia <br>
+- Debug Julia installation to get it to run <br>
+- Team got two drone sim online <br>
 
+## 1/21/2025
+- Met with PO and TA <br>
+- Continued to debug Julia <br>
+- Team got the lidar and multidrone working <br>
+
+## 1/23/2025
+- Met with PO and TA <br>
+- Continued to debug Julia <br>
+
+## 1/28/2025
+- Met with PO and TA <br>
