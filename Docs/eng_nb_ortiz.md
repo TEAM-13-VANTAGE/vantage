@@ -153,5 +153,11 @@ Jim managed to get Lidar working I will ask him more about it tomorrow (today is
 
 
 
+21-24 jan
 
+mostly workde on getting the gazebo drone moving. We got it to move on Thursday and back to trying to optimize it. Over the weekend I started drafting the new SRS section on my end. 
+
+as far of 1/28th/2024 
+
+I started researching a bit more on the drone movement automization. i got sick this week I could not attend the scrum meeting.
 
