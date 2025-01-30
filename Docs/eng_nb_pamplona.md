@@ -95,6 +95,38 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Got LiDAR Working!
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/753248d6-76df-49e9-8533-c3136d62a65e">
 
+--------------
+## Sprint 1
+### 1/9/2025
+- Welcome back!
+- Talked to Akbas and Alejandro about smeester expectations
+
+### 1/14/2025
+- Reworked backlog to be more atomic
+- Set new plan for semester and sprint
+- Found a new repo to utilize for Gazebo
+
+### 1/16/2025
+- Helped Jack and Mai with some Julia stuff
+- Successfully set up older version of Gazebo and ardupilot in Jona's machine
+- Successfully installed it on my pc
+
+
+## Sprint 2
+### 1/21/2025
+- Implemented LiDAR to Gazebo
+- Got both 2-drone swarms and LiDAR to work together in one sim
+
+### 1/23/2025
+- Helped Jona look for ways to control drones using CLI
+
+### 1/28/2025
+- Sick so was unable to go
+
+### 1/30/2025
+- Working on SRS
+- 
+
 
 
 
