@@ -133,3 +133,9 @@
 ## 1/28/2025
  - Helped Mai get Julia working on her computer
  - Started working on head-on collisions in Julia
+
+ ## 1/30/2025
+ - Started running simulations in Julia
+ - Troubleshot head-on collisions
+ - Added functionality to the Julia code so that simulations can run on any computer
+   - I made it use relative instead of absolute paths and it now checks if the csv files exist and creates them if not
