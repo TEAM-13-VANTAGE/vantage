@@ -1,6 +1,7 @@
 using Distributed
 using ProgressMeter
 using CSV
+using Base.Filesystem
 
 @everywhere begin
     using Agents
@@ -25,11 +26,12 @@ all_titles = [
         "horizontal"
     ]
 ]
-# julia --project=. -p 11 Particle-Simulation/experiments/round1-full.jl
+# cd Particle-Simulation
+# julia --project=. -p 11 /experiments/round1-full.jl
 for title in all_titles
     println("Starting simulation for $title")
 
-    manifest, units = read_manifest("/Users/jpamplona/Coding Projects/UAV-TestingSim/Particle-Simulation/params/round1/$title-manifest.csv")
+    manifest, units = read_manifest("./params/round1/$title-manifest.csv")
     params = expand_parameters(manifest)
     total_runs = ncomb(params)
     println("Simulation Count: $total_runs")
@@ -56,6 +58,13 @@ for title in all_titles
     end
     results = vcat(all_data...)
     convert_df_units_from_std(results, units)
-    CSV.write("results/round1/$title-results.csv", results)
+
+    filename = "./results/round1/$title-results.csv"
+    if !isfile(filename)
+        touch(filename)
+        println("File created: $filename")
+    end
+
+    CSV.write(filename, results)
     next!(progress)
 end
