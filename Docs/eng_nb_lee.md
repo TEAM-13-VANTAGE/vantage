@@ -139,3 +139,9 @@
  - Troubleshot head-on collisions
  - Added functionality to the Julia code so that simulations can run on any computer
    - I made it use relative instead of absolute paths and it now checks if the csv files exist and creates them if not
+
+## 2/2/2025
+ - Worked on SRS
+ - Created Section 3 and wrote 3.1, 3.2, 3.3 to describe how our project will affect Public Health, Safety, and Welfare
+ - Created and wrote section 3.8 to describe the Economic Effects of our project
+ - Updated document control table and table of contents
