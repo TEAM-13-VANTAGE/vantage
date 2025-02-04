@@ -145,3 +145,8 @@
  - Created Section 3 and wrote 3.1, 3.2, 3.3 to describe how our project will affect Public Health, Safety, and Welfare
  - Created and wrote section 3.8 to describe the Economic Effects of our project
  - Updated document control table and table of contents
+
+## 2/4/2025
+ - Messed around with the visualization and graph generation scripts in `Particle-Simulation\analysis\headon-visualize.ipynb`. 
+ - Made an example script to plot the results of headon-horizontal simulations
+ - Future work: Find where the UI saves simulations to, and add an option / feature to display the result graphs to the user after simulation execution.
