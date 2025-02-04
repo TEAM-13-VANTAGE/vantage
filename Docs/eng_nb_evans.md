@@ -115,3 +115,11 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Met with PO and TA <br>
 - Got Julia to work on my PC <br>
 - Communicated with team about next steps <br>
+
+## 1/30/2025
+- Met with PO and TA <br>
+- Tested/ran head on simulations in Julia <br>
+- Learned about the parameters in the simulation <br>
+
+## 2/4/2025
+- Met with PO and TA <br>
