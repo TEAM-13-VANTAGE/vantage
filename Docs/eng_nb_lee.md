@@ -150,4 +150,5 @@
  - Messed around with the visualization and graph generation scripts in `Particle-Simulation\analysis\headon-visualize.ipynb`. 
  - Made an example script to plot the results of headon-horizontal simulations
  - Added section 4.4 to SRS
+ - Updated and submitted SRS
  - Future work: Find where the UI saves simulations to, and add an option / feature to display the result graphs to the user after simulation execution.
