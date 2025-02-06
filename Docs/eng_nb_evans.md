@@ -123,7 +123,11 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 
 ## 2/4/2025
 - Met with PO and TA <br>
+- Debugged master file/install mathplotlib <br>
+- Worked on running round1 headon sims on Python Controller task <br>
 
 ## 2/6/2025
 - Met with PO and TA <br>
+- Worked on running round1 headon sims on Python Controller task <br>
+
 
