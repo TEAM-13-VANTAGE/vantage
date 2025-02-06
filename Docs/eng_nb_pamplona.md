@@ -125,7 +125,17 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 
 ### 1/30/2025
 - Working on SRS
-- 
+
+### 2/4/2025
+- Talked with PO and TA
+- Scrum standup meeting
+- Ended sprint and talked about next steps
+
+## Sprint 3
+### 2/6/2025
+- Began sprint
+- Helped Jack and Mai on low-fidelity module
+- Helped Jona with Waypoint system
 
 
 
