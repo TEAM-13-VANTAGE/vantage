@@ -6,25 +6,6 @@ import numpy as np
 import os
 
 
-PATH = os.getcwd() + r"\results\round1\headon-horizontal-results.csv"
-with open(PATH, "r") as f:
-    f.readline()
-
-
-all_exps = pd.read_csv(PATH)#.drop_duplicates()
-# print(all_exps.shape[0])
-all_exps['drone_horizontal_turn_rate'] = 180 / np.pi * all_exps['drone_horizontal_turn_rate']
-all_exps['drone_speed'] = 1/1.444447 * all_exps['drone_speed']
-all_exps['heli_speed'] = 1/1.444447 * all_exps['heli_speed']
-all_exps['is_violation'] = np.where(
-    (all_exps['contactLevel'] != 'none'), 
-    1, 0)
-violations = all_exps[(all_exps['contactLevel'] == 'violation') | (all_exps['contactLevel'] == 'collision')]
-violations.columns
-all_exps = all_exps.round(4)
-all_exps
-
-
 def add_temp_legend(values, element, ax):
     np.unique(values)[::-1].sort()
     colors = [ element.cmap(element.norm(value)) for value in values]
@@ -51,9 +32,7 @@ def heatmap(df: pd.DataFrame, x_key: str, y_key: str, title:str, **kwargs):
     values = np.unique(df.to_numpy().flatten())
     
     add_temp_legend(values, im, ax)
-    
-    
-    
+        
 def isolate(df: pd.DataFrame, cols: dict): # keys:list[str], values:list
     exp = None
     for k, v in cols.items():
@@ -63,48 +42,6 @@ def isolate(df: pd.DataFrame, cols: dict): # keys:list[str], values:list
             exp &= df[k] == v
             
     return df[exp]
-    
-
-heatmap(all_exps, "drone_speed", "drone_horizontal_turn_rate", "head-on collisions")
-
-
-all_exps.drone_response_distance.unique()
-
-
-tmp = all_exps[all_exps['drone_y_pos'] <= 2000]#[all_exps['drone_horizontal_turn_rate'] > 35]
-# tmp = isolate(tmp, {"drone_horizontal_turn_rate": 30})
-heatmap(all_exps, "drone_response_distance", "drone_speed", "head-on collisions")
-
-
-colsa = {
-    "drone_speed" : 35.0,
-    "drone_response_distance" : 1000.0,
-    # "heli_speed": 35.0,
-    # "drone_y_pos": 1000.0,
-    # "drone_horizontal_turn_rate": 10.0,
-    "is_violation" : 1,
-}
-colsb = {
-    "drone_speed" : 50.0,
-    "drone_response_distance" : 800.0,
-    "heli_speed": 35.0,
-    "drone_y_pos": 2000,
-    "drone_horizontal_turn_rate": 10,
-    "is_violation" : 1,
-}
-
-a = isolate(all_exps, colsa)
-b = isolate(all_exps, colsb)
-a
-
-
-all_exps[(all_exps['drone_response_distance'] == 1200) & (all_exps['drone_speed'] == 20)].describe()
-
-
-tmp = all_exps#[all_exps['drone_y_pos'] <= 2000]
-# tmp = isolate(tmp, {"drone_speed": 20})
-heatmap(tmp, "drone_response_distance", "drone_horizontal_turn_rate", "head-on collisions")
-
 
 def plot_point_cloud(df: pd.DataFrame, x_key: str, y_key: str, z_key: str, title: str, point_radius: float = None):
     fig = plt.figure()
@@ -140,9 +77,62 @@ def plot_point_cloud(df: pd.DataFrame, x_key: str, y_key: str, z_key: str, title
     ax.set_title(title)
     
     add_temp_legend(np.unique(np.array(temps[::-1]).flatten()), scat, ax)
-    
 
-all_exps.columns
+PATH = os.getcwd() + r"\results\round1\headon-horizontal-results.csv"
+with open(PATH, "r") as f:
+    f.readline()
+
+all_exps = pd.read_csv(PATH) #.drop_duplicates()
+# print(all_exps.shape[0])
+all_exps['drone_horizontal_turn_rate'] = 180 / np.pi * all_exps['drone_horizontal_turn_rate']
+all_exps['drone_speed'] = 1/1.444447 * all_exps['drone_speed']
+all_exps['heli_speed'] = 1/1.444447 * all_exps['heli_speed']
+all_exps['is_violation'] = np.where(
+    (all_exps['contactLevel'] != 'none'), 
+    1, 0)
+violations = all_exps[(all_exps['contactLevel'] == 'violation') | (all_exps['contactLevel'] == 'collision')]
+# violations.columns
+all_exps = all_exps.round(4)
+
+heatmap(all_exps, "drone_speed", "drone_horizontal_turn_rate", "head-on collisions")
+
+all_exps.drone_response_distance.unique()
+
+tmp = all_exps[all_exps['drone_y_pos'] <= 2000] #[all_exps['drone_horizontal_turn_rate'] > 35]
+# tmp = isolate(tmp, {"drone_horizontal_turn_rate": 30})
+heatmap(all_exps, "drone_response_distance", "drone_speed", "head-on collisions")
+
+colsa = {
+    "drone_speed" : 35.0,
+    "drone_response_distance" : 1000.0,
+    # "heli_speed": 35.0,
+    # "drone_y_pos": 1000.0,
+    # "drone_horizontal_turn_rate": 10.0,
+    "is_violation" : 1,
+}
+colsb = {
+    "drone_speed" : 50.0,
+    "drone_response_distance" : 800.0,
+    "heli_speed": 35.0,
+    "drone_y_pos": 2000,
+    "drone_horizontal_turn_rate": 10,
+    "is_violation" : 1,
+}
+
+# a = isolate(all_exps, colsa)
+# b = isolate(all_exps, colsb)
+# a
+
+
+all_exps[(all_exps['drone_response_distance'] == 1200) & (all_exps['drone_speed'] == 20)].describe()
+
+
+tmp = all_exps#[all_exps['drone_y_pos'] <= 2000]
+# tmp = isolate(tmp, {"drone_speed": 20})
+heatmap(tmp, "drone_response_distance", "drone_horizontal_turn_rate", "head-on collisions")
+
+
+# all_exps.columns
 
 
 # tmp = all_exps[all_exps['drone_y_pos'] <= 2000]
