@@ -15,23 +15,22 @@ N = nworkers()
 all_titles = [
     "$typ-$maneuver"
     for typ in [
-        "converging-norm",
-        "converging-adverse",
+        # "converging-norm",
+        # "converging-adverse",
         "headon",
-        "overtaking",
+        # "overtaking",
     ]
     for maneuver in [
         "row",
-        "vertical",
-        "horizontal"
+        # "vertical",
+        # "horizontal"
     ]
 ]
 # cd Particle-Simulation
 # julia --project=. -p 11 /experiments/round1-full.jl
 for title in all_titles
     println("Starting simulation for $title")
-
-    manifest, units = read_manifest("./params/round1/$title-manifest.csv")
+    manifest, units = read_manifest("params.csv")
     params = expand_parameters(manifest)
     total_runs = ncomb(params)
     println("Simulation Count: $total_runs")
