@@ -154,6 +154,7 @@ class SimulationApp(QWidget):
         self.output_log.append("Adding parameters to CSV file.")
         csv_filename = "params.csv"
         csv_data = []
+        print('Simulation Type: ', str(self.params_options.currentText()))
 
         for param_name, inputs in self.param_inputs.items():
             try:
@@ -173,6 +174,7 @@ class SimulationApp(QWidget):
         try:
             with open(csv_filename, "w", newline="") as file:
                 writer = csv.writer(file)
+                writer.writerow([str(self.params_options.currentText()),]) # simulation type
                 writer.writerow(["param_name", "start", "stop", "steps", "unit"])  # Header
                 writer.writerows(csv_data)
 
@@ -190,8 +192,15 @@ class SimulationApp(QWidget):
             with open(csv_filename, newline='') as csv_file:
                 reader = csv.reader(csv_file)
                 print('reader created')
+                sim_type = next(reader)
+                if sim_type[0] in ["Vertical", "Horizontal", "Row"]:
+                    # set simulation type to row
+                    print('Simulation type: ', sim_type[0])
+                else:
+                    raise ValueError("The CSV file cannot be parsed (missing simulation type)")
                 for row in reader:
                     print(str(row))
+                    # figure out what to do with the values depending on the sim type
                 csv_file.close()
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
