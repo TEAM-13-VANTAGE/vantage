@@ -3,9 +3,9 @@ import csv
 from julia import Main
 import julia
 from PyQt5.QtWidgets import (
-    QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QComboBox, QPushButton, QTextEdit
+    QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QComboBox, QPushButton, QTextEdit, QFileDialog
 )
-
+import time
 
 class SimulationApp(QWidget):
     def __init__(self):
@@ -22,6 +22,11 @@ class SimulationApp(QWidget):
         self.params_options.currentIndexChanged.connect(self.update_input_fields)  # Connect signal
         self.layout.addWidget(self.params_options)
 
+        # Add a button to import simulation parameters
+        self.import_button = QPushButton("Import Parameters from File")
+        self.import_button.clicked.connect(self.import_params_file)
+        self.layout.addWidget(self.import_button)
+
         # Initialize input fields container
         self.input_fields_container = QVBoxLayout()  # Separate container for input fields
         self.layout.addLayout(self.input_fields_container)  # Add it to the main layout
@@ -36,7 +41,7 @@ class SimulationApp(QWidget):
         
         # Add an output log for messages
         self.output_log = QTextEdit()
-        self.output_log.setReadOnly(True)  # Make it read-only for logs
+        self.output_log.setReadOnly(False)  # Make it read-only for logs
         self.layout.addWidget(self.output_log)
 
         self.setLayout(self.layout)
@@ -119,10 +124,10 @@ class SimulationApp(QWidget):
                 Main.eval('using Pkg')
                 Main.eval('Pkg.activate("./Particle-Simulation")')
                 Main.eval('Pkg.instantiate()')
-                Main.include("Particle-Simulation/src/main.jl")
-                Main.include("Particle-Simulation/test.jl")
+                # Main.include("Particle-Simulation/src/main.jl")
                 self.julia_initialized = True
                 self.output_log.append("Julia initialized successfully.")
+                Main.include("Particle-Simulation/experiments/round1-full.jl")
             except Exception as e:
                 self.output_log.append(f"Error initializing Julia: {e}")
 
@@ -136,7 +141,7 @@ class SimulationApp(QWidget):
         self.output_log.append("Running simulation...")
         print("Running simulation...") 
         
-                # Initialize Julia if not already initialized
+        # Initialize Julia if not already initialized
         self.initialize_julia()
 
         if not self.julia_initialized:
@@ -175,6 +180,22 @@ class SimulationApp(QWidget):
         except Exception as e:
             self.output_log.append(f"Error creating CSV file: {str(e)}")
 
+    def import_params_file(self):
+        """Docstring"""
+        print('Import button clicked')
+        csv_filename = QFileDialog.getOpenFileName(self, "Import Parameters from File", ".", "CSV File (*.csv)")[0]
+        print('file selected: ', csv_filename)
+
+        try:
+            with open(csv_filename, newline='') as csv_file:
+                reader = csv.reader(csv_file)
+                print('reader created')
+                for row in reader:
+                    print(str(row))
+                csv_file.close()
+        except Exception as e:
+            self.output_log.append(f"Error parsing CSV file: {str(e)}")
+        return
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
