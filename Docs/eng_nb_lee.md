@@ -151,4 +151,16 @@
  - Made an example script to plot the results of headon-horizontal simulations
  - Added section 4.4 to SRS
  - Updated and submitted SRS
- - Future work: Find where the UI saves simulations to, and add an option / feature to display the result graphs to the user after simulation execution.
+ - Future work: 
+    - Replace the test.jl running in gui.py with the round1 simulations
+    - Display the result graphs to the user after simulation execution.
+    - Add the option to import existing simulation parameters
+
+## 2/6/2025
+ - discussed peer reviews with Dr. Akbas and team
+ - Worked on getting julia output to appear in the gui
+   - no success so far -- We would need another process to check for the julia stdout and return it as it's printed
+
+## 2/11/2025
+ - Added a button to import .csv parameter files
+   - WIP
