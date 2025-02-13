@@ -161,3 +161,18 @@ as far of 1/28th/2024
 
 I started researching a bit more on the drone movement automization. i got sick this week I could not attend the scrum meeting.
 
+
+looks like I forgot to update the engineering notebook! or it did not save great stuff! Okay summarizing a bit to rapidfire things: SRS got updated and finished, WP updates and related.
+
+
+
+
+I will update with thsi week primarily:
+Tuesday  February 11th: got to test WP learned how to properly laod and setup WP systems
+they go something like: waypoint number, par1, par2, apr3, latitude(x), longitude(y), altitude?(z), comtinue to next WP? (0 or 1). the drones can now consistently get upand online and load the waypoints!
+You arm, throttle and make them takeoff on guided modeand then set them on auto. Issue that I am running into is the drone seem to not follow the waypoints.
+Wednesday and THursday updates! because updatingthis notebook after 8 hours of working is the next big thing I want to do! I have been tinkering and learned hwo toload the missions thorugh the mav console even if we alredy learned last tuesday how to load them on the terminal. I HAVE NO CLUE WHY IT IS MISSING THE WAYPOINTS! WOOOOOOOOOOOOOOOOOO! it seems between the errors or bugs it is running into might eb between the following; WP radius which doe snot add up or maybe it does? (it is a 2 meter radius for the waypoint confirmation points I am testing WPwith 10m distance), potentially gps signals?, I dunno what else. I am frustrated at the fact that there is not a lot of poking that has helped out on this work session. I triied setting up ROS as expected it made some ammount of sense but without proper file setup it will not worked as planned and without the drones properly following the WP I need to attack this problem from another  angle. hopefully tomorrow I come in with a fe=resh mind rathe than a 4am session or the sleepschedule not helping tomorrow. I want to figure this out not to hold back the team.
+
+expect another update for Thursday later today at class time.
+
+
