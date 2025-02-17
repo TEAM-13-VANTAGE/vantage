@@ -163,4 +163,7 @@
 
 ## 2/11/2025
  - Added a button to import .csv parameter files
-   - WIP
+   - Started working on parsing the files into simulation parameters
+
+## 2/17/2025
+ - Simulation CSV files can now be imported to the GUI!

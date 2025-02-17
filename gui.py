@@ -15,17 +15,18 @@ class SimulationApp(QWidget):
         self.julia_initialized = False  # Flag to track Julia initialization
 
     def init_ui(self):
-        options = ["Vertical", "Horizontal", "Row"]
         self.layout = QVBoxLayout()  # Make layout an instance variable
-        self.params_options = QComboBox()
-        self.params_options.addItems(options)
-        self.params_options.currentIndexChanged.connect(self.update_input_fields)  # Connect signal
-        self.layout.addWidget(self.params_options)
 
         # Add a button to import simulation parameters
         self.import_button = QPushButton("Import Parameters from File")
         self.import_button.clicked.connect(self.import_params_file)
         self.layout.addWidget(self.import_button)
+
+        options = ["Vertical", "Horizontal", "Row"]
+        self.params_options = QComboBox()
+        self.params_options.addItems(options)
+        self.params_options.currentIndexChanged.connect(self.update_input_fields)  # Connect signal
+        self.layout.addWidget(self.params_options)
 
         # Initialize input fields container
         self.input_fields_container = QVBoxLayout()  # Separate container for input fields
@@ -38,7 +39,7 @@ class SimulationApp(QWidget):
         self.run_button = QPushButton("Run Simulation")
         self.run_button.clicked.connect(self.run_simulation)
         self.layout.addWidget(self.run_button)
-        
+
         # Add an output log for messages
         self.output_log = QTextEdit()
         self.output_log.setReadOnly(False)  # Make it read-only for logs
@@ -75,7 +76,7 @@ class SimulationApp(QWidget):
             params = ["drone_speed", "heli_speed", "drone_x_pos", "drone_y_pos", "drone_direction", "drone_response_distance", "drone_horizontal_turn_rate", "drone_horizontal_turn_angle"]
 
         self.param_inputs = {}  # Tracks input fields for later access
-        
+
         # Predefined unit options
         unit_options = ["feet", "mph", "degrees", "degrees/s", "bool"]
 
@@ -102,7 +103,7 @@ class SimulationApp(QWidget):
             row.addWidget(stop_input)
             row.addWidget(steps_input)
             row.addWidget(unit_dropdown)
-            
+
             # Store references to the input fields in param_inputs
             self.param_inputs[param_name] = {
                 "start": start_input,
@@ -139,8 +140,8 @@ class SimulationApp(QWidget):
 
         # Run Julia simulation and log the results
         self.output_log.append("Running simulation...")
-        print("Running simulation...") 
-        
+        print("Running simulation...")
+
         # Initialize Julia if not already initialized
         self.initialize_julia()
 
@@ -182,29 +183,36 @@ class SimulationApp(QWidget):
         except Exception as e:
             self.output_log.append(f"Error creating CSV file: {str(e)}")
 
+    def import_params(self, reader):
+        """Populates the GUI with parameters from a CSV file"""
+        param_values = next(reader)
+        for row in reader:
+            print('Importing sim row: ',row)
+            for i in range(1, len(row)):
+                # Checks if the input at this index is a LineEdit or ComboBox, sets it to the CSV value
+                match self.param_inputs[row[0]][param_values[i]]:
+                    case QLineEdit():
+                        self.param_inputs[row[0]][param_values[i]].setText(row[i])
+                    case QComboBox():
+                        self.param_inputs[row[0]][param_values[i]].setCurrentText(row[i])
+
     def import_params_file(self):
-        """Docstring"""
-        print('Import button clicked')
+        """Opens and attempts to import a CSV file"""
         csv_filename = QFileDialog.getOpenFileName(self, "Import Parameters from File", ".", "CSV File (*.csv)")[0]
-        print('file selected: ', csv_filename)
 
         try:
-            with open(csv_filename, newline='') as csv_file:
+            with open(csv_filename, newline='', encoding='utf-8') as csv_file:
                 reader = csv.reader(csv_file)
-                print('reader created')
-                sim_type = next(reader)
-                if sim_type[0] in ["Vertical", "Horizontal", "Row"]:
-                    # set simulation type to row
-                    print('Simulation type: ', sim_type[0])
-                else:
-                    raise ValueError("The CSV file cannot be parsed (missing simulation type)")
-                for row in reader:
-                    print(str(row))
-                    # figure out what to do with the values depending on the sim type
+                sim_type = next(reader) # get sim type header
+
+                if sim_type[0] not in ["Vertical", "Horizontal", "Row"]: # the sim types should be an Enum...
+                    csv_file.close()
+                    raise ValueError("The CSV file cannot be parsed (missing or invalid simulation type)")
+
+                self.import_params(reader)
                 csv_file.close()
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
-        return
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
