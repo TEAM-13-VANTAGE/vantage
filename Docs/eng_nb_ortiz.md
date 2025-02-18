@@ -175,4 +175,6 @@ Wednesday and THursday updates! because updatingthis notebook after 8 hours of w
 
 expect another update for Thursday later today at class time.
 
+Decided to update on it Sunday the 17th: 
+We decided to go abck into the message module and we managed our first collision. It is easier to work withs since the waypoint system was not working. Thankfully Jim realized I was testing in the wrong world file. for the weekend of 15-17th of february time was spent on the ROS research to get going for it. THe mavros package is probablnu what we willuse but it seems interesting to see how to apply it.
 
