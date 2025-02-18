@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QComboBox, QPushButton, QTextEdit, QFileDialog
 )
 import time
+import subprocess
+import os
 
 class SimulationApp(QWidget):
     def __init__(self):
@@ -39,6 +41,11 @@ class SimulationApp(QWidget):
         self.run_button = QPushButton("Run Simulation")
         self.run_button.clicked.connect(self.run_simulation)
         self.layout.addWidget(self.run_button)
+
+        # Add a button to launch the high-fidelity module
+        self.hf_button = QPushButton("Launch High-Fidelity Simulation")
+        self.hf_button.clicked.connect(self.launch_high_fidelity_simulation)
+        self.layout.addWidget(self.hf_button)
 
         # Add an output log for messages
         self.output_log = QTextEdit()
@@ -214,8 +221,27 @@ class SimulationApp(QWidget):
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
 
+    def launch_high_fidelity_simulation(self):
+        """Launch Gazebo, ArduCopter, and MAVProxy in WSL."""
+        try:
+            # Start Gazebo with the specified world file in WSL
+            self.output_log.append("Launching Drone 0...")
+            subprocess.run(['wsl', '-d', 'Ubuntu-20.04', 'bash', '-c', '~/run_program.sh'], check=True)
+            self.output_log.append("Gazebo launched successfully.")
+
+            # Wait for Gazebo to settle before launching drones
+            self.output_log.append("Waiting 30 seconds before launching drones...")
+            time.sleep(30)
+
+
+        except subprocess.CalledProcessError as e:
+            self.output_log.append(f"Error: {str(e)}")
+        except Exception as e:
+            self.output_log.append(f"An unexpected error occurred: {str(e)}")
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = SimulationApp()
     window.show()
     sys.exit(app.exec_())
+
