@@ -130,4 +130,21 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Met with PO and TA <br>
 - Worked on running round1 headon sims on Python Controller task <br>
 
+## 2/11/2025
+- Met with PO and TA <br>
+- Worked on running round1 headon sims on Python Controller task <br>
+
+## 2/13/2025
+- Met with PO and TA <br>
+- Worked on running round1 headon sims on Python Controller task <br>
+
+## 2/18/2025
+- Met with PO and TA <br>
+- Worked on running round1 headon sims on Python Controller task <br>
+
+## 2/20/2025
+- Met with PO and TA <br>
+- Worked on running round1 headon sims on Python Controller task <br>
+
+
 
