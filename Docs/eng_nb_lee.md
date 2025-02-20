@@ -167,3 +167,11 @@
 
 ## 2/17/2025
  - Simulation CSV files can now be imported to the GUI!
+
+## 2/18/2025
+ - Discussed new sprint tasks and our progress last sprint
+ - I will be working on rendering and displaying the graphs after simulation completion
+
+## 12/20/2025
+ - Had a work meeting so I was late to the class
+ - Discussed the future roadmap and plans to complete the project this semester
