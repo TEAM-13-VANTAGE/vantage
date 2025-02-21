@@ -142,12 +142,11 @@ presentation recording finished, more work on testing document
 
 The final presentation is today. Poster presentation we will see how it goes.
 
-okay I have forgotten sllightly to update the engineering notebook here are a few updates:
+okay, I have forgotten slightly to update the engineering notebook here are a few updates:
+the 
+new semester started on the 10th of January and mostly consisted of breaking down what we needed to do for the rest of the semester in a presentation given by the teachers.
 
-new semester started the 10th of january mostly consisted on breaking down what we neeeded to do for the rest of the semesters in a presentation
-given by the teachers.
-
-the following week (14th and 16th) consisted on checking requirements of the what we need to do or update that be the Jira backlog or having work done on the back log of the gazebo classic. We managed to implement one and two drone swarm.
+the following week (14th and 16th) consisted of checking requirements of the what we need to do or update that be the Jira backlog or having work done on the back log of the gazebo classic. We managed to implement one and two drone swarm.
 Jim managed to get Lidar working I will ask him more about it tomorrow (today is the 20th). The other thing is getting a vm dedicated to crafting the current working position. Other than this I don't know what else we need to work on. Documentation definitely needs to be updated with the new requirements given.
 
 
@@ -155,26 +154,26 @@ Jim managed to get Lidar working I will ask him more about it tomorrow (today is
 
 21-24 jan
 
-mostly workde on getting the gazebo drone moving. We got it to move on Thursday and back to trying to optimize it. Over the weekend I started drafting the new SRS section on my end. 
+mostly worked on getting the gazebo drone moving. We got it to move on Thursday and back to trying to optimize it. Over the weekend I started drafting the new SRS section on my end. 
 
-as far of 1/28th/2024 
+as far as 1/28th/2024 
 
-I started researching a bit more on the drone movement automization. i got sick this week I could not attend the scrum meeting.
-
-
-looks like I forgot to update the engineering notebook! or it did not save great stuff! Okay summarizing a bit to rapidfire things: SRS got updated and finished, WP updates and related.
+I started researching a bit more on drone movement automation. I got sick this week I could not attend the scrum meeting.
 
 
+looks like I forgot to update the engineering notebook! or it did not save great stuff! Okay summarizing a bit to rapid-fire things: SRS got updated and finished, WP updates and related.
 
 
-I will update with thsi week primarily:
-Tuesday  February 11th: got to test WP learned how to properly laod and setup WP systems
-they go something like: waypoint number, par1, par2, apr3, latitude(x), longitude(y), altitude?(z), comtinue to next WP? (0 or 1). the drones can now consistently get upand online and load the waypoints!
-You arm, throttle and make them takeoff on guided modeand then set them on auto. Issue that I am running into is the drone seem to not follow the waypoints.
-Wednesday and THursday updates! because updatingthis notebook after 8 hours of working is the next big thing I want to do! I have been tinkering and learned hwo toload the missions thorugh the mav console even if we alredy learned last tuesday how to load them on the terminal. I HAVE NO CLUE WHY IT IS MISSING THE WAYPOINTS! WOOOOOOOOOOOOOOOOOO! it seems between the errors or bugs it is running into might eb between the following; WP radius which doe snot add up or maybe it does? (it is a 2 meter radius for the waypoint confirmation points I am testing WPwith 10m distance), potentially gps signals?, I dunno what else. I am frustrated at the fact that there is not a lot of poking that has helped out on this work session. I triied setting up ROS as expected it made some ammount of sense but without proper file setup it will not worked as planned and without the drones properly following the WP I need to attack this problem from another  angle. hopefully tomorrow I come in with a fe=resh mind rathe than a 4am session or the sleepschedule not helping tomorrow. I want to figure this out not to hold back the team.
+I will update with this week primarily:
+Tuesday,  February 11th: got to test WP and learned how to properly load and setup WP systems
+they go something like: waypoint number, par1, par2, apr3, latitude(x), longitude(y), altitude?(z), comtinue to next WP? (0 or 1). the drones can now consistently get up and online and load the waypoints!
+You arm, throttle, and make them takeoff on guided mode and then set them on auto. Issue that I am running into is the drone seem to not follow the waypoints.
+Wednesday and Thursday updates! because updating this notebook after 8 hours of working is the next big thing I want to do! I have been tinkering and learned how to load the missions through the mav console even if we already learned last Tuesday how to load them on the terminal. I HAVE NO CLUE WHY IT IS MISSING THE WAYPOINTS! WOOOOOOOOOOOOOOOOOO! It seems that the errors or bugs it is running into might be between the following; WP radius which does not add up or maybe it does. (it is a 2-meter radius for the waypoint confirmation points I am testing WP with a 10m distance), potentially GPS signals?, I dunno what else? I am frustrated at the fact that there is not a lot of poking that has helped out on this work session. I tried setting up ROS as expected it made some amount of sense but without proper file setup it will not work as planned and without the drones properly following the WP I need to attack this problem from another  angle. hopefully, I come in with a fresh mind rather than a 4 am session or the sleep schedule not helping tomorrow. I want to figure this out so as not to hold back the team.
 
 expect another update for Thursday later today at class time.
 
 Decided to update on it Sunday the 17th: 
-We decided to go abck into the message module and we managed our first collision. It is easier to work withs since the waypoint system was not working. Thankfully Jim realized I was testing in the wrong world file. for the weekend of 15-17th of february time was spent on the ROS research to get going for it. THe mavros package is probablnu what we willuse but it seems interesting to see how to apply it.
+We decided to go back into the message module and we managed our first collision. It is easier to work with since the waypoint system was not working. Thankfully Jim realized I was testing in the wrong world file. for the weekend of 15-17th of February time was spent on the ROS research to get going for it. The mavros package is probably what we will use but it seems interesting to see how to apply it.
 
+week of 2/20/2024 Tuesday to Thursday:
+Tuesday was the end of the sprint focused on researching the load module message and met up with the product owner on Thursday. Thursday we planned out the rest of the semester or sprints. Mostly for those sprints for my load it is looking into SDD and configuring the world for gazebo implementation.
