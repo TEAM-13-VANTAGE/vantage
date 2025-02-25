@@ -116,6 +116,8 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 ### 1/21/2025
 - Implemented LiDAR to Gazebo
 - Got both 2-drone swarms and LiDAR to work together in one sim
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/73698681-6190-4ba2-a8dc-fc4849d28a73">
+
 
 ### 1/23/2025
 - Helped Jona look for ways to control drones using CLI
@@ -136,6 +138,30 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Began sprint
 - Helped Jack and Mai on low-fidelity module
 - Helped Jona with Waypoint system
+
+### 2/11/2025
+- Assisted Jona again with waypoint system
+- Could not seem to get it to work
+- Starting to rethink approach for movement within the high-fidelity module
+
+### 2/13/2025
+- Started working on integrating the high-fidelity module to the controller
+- Many issues arised as the script was not set up on my pc
+- Awaiting for commands needed for waypoint system
+- Reverting back to command approach for movement in the high-fidelity module
+  - https://ardupilot.org/dev/docs/copter-commands-in-guided-mode.html
+
+### 2/18/2025
+- Ended sprint and talked about next steps
+- Scrum standup meeting
+- Completed integration of high-fidelity module within the controller
+ - A lot of issues that need to be considered
+   - Ardupilot not running properly; can't find mavproxy
+   - System limited to Python 3.8 due to Ubuntu 20.04
+   - Python controller breaking due to older version
+  
+
+
 
 
 
