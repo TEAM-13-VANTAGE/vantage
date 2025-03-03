@@ -120,7 +120,7 @@ function read_manifest(path::String)::Tuple{DataFrame,Dict{Symbol,String}}
     units array (each element corresponds to each row in the mani-
     fest.)
     """
-    df = CSV.File(path; ignoreemptyrows=true) |> DataFrame
+    df = CSV.File(path; ignoreemptyrows=true, header=2) |> DataFrame
     input_units = Dict{Symbol,String}()
 
     # for row in eachrow(df)
@@ -241,4 +241,14 @@ function generate_param_combinations(params)
         )
     end
     return param_list
+end
+
+function parse_sim_maneuver(path::String)::String
+    """
+    Reads the first line from params.csv
+    Returns the maneuver type
+    (Vertical, Horizontal, Row)
+    """
+    maneuver_type = lowercase(readline(path))
+    return maneuver_type
 end
