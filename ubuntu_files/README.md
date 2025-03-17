@@ -8,7 +8,7 @@ Steps for installing the system:
 5. Run 'gz sim -v4 -r iris_runway.sdf' in one terminal.
 6. Run 'sim_vehicle.py -v ArduCopter -f gazebo-iris -I0 --console --model JSON' on the other
 7. The installation is successful if the system opens these three tabs and the console does not say 'link 1 down'.
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/299e9784-3558-4eb3-b06b-d6e7f5297d0e"
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/299e9784-3558-4eb3-b06b-d6e7f5297d0e">
 8. Ctrl+C on all terminals and close all.
 9. Copy and paste the provided iris_runway.sdf file to the directory below. Replace if existing.'
 
