@@ -21,7 +21,10 @@ Steps for installing the system:
 `~/ardu_ws/install/ardupilot_gz_description/share/ardupilot_gz_description/`
 
 11. Open three terminals:
+
     Terminal 1: Run `gz sim -v4 -r iris_runway.sdf`
+
     Terminal 2: Run `sim_vehicle.py -v ArduCopter -f gazebo-iris -I0 --console --model JSON`
+
     Terminal 3: Run `sim_vehicle.py -v ArduCopter -f gazebo-iris -I1 --console --model JSON`
 
