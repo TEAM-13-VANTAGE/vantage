@@ -3,7 +3,7 @@ Steps for installing the system:
 
 1. Install Ubuntu 22.04 VM and complete set up. _(Preferable specs: **50GB storage**, **8GB memory**)_
 2. Install the install_script.sh to the '~/' directory. 
-3. Run the following in a terminal: 'chmod +x ~/install_script.sh' '~/install_script.sh'
+3. Run the following in a terminal: 'chmod +x ~/install_script.sh \n ~/install_script.sh'
 4. Once completed, open two new terminals.
 5. Run 'gz sim -v4 -r iris_runway.sdf' in one terminal.
 6. Run 'sim_vehicle.py -v ArduCopter -f gazebo-iris -I0 --console --model JSON' on the other
