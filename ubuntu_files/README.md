@@ -28,5 +28,7 @@ As of now These files are compatible only with Ubuntu 22.04, ROS2 Humble, & Gaze
 
     Terminal 3: Run `sim_vehicle.py -v ArduCopter -f gazebo-iris -I1 --console --model JSON`
 
-12. There should be two drones shown on Gazebo, and both are controllable by their respective consoles.
+12. There should be two drones shown on Gazebo, and both are controllable by their respective consoles  as shown below:
+<img width="800" alt="image" src="[https://github.com/user-attachments/assets/b79dde47-4d78-4ec4-ab86-01c437419507]">
+
 
