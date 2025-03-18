@@ -18,7 +18,7 @@ As of now These files are compatible only with Ubuntu 22.04, ROS2 Humble, & Gaze
 
 10. Copy and paste the provided `iris_with_lidar` & `iris_with_lidar_2` folders to the directory below. Replace if existing.
 
-`~/ardu_ws/install/ardupilot_gz_description/share/ardupilot_gz_description/`
+`~/ardu_ws/install/ardupilot_gz_description/share/ardupilot_gz_description/models`
 
 11. Open three terminals:
 
