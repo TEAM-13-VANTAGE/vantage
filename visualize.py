@@ -49,6 +49,7 @@ def plot_point_cloud(df: pd.DataFrame, x_key: str, y_key: str, z_key: str, title
     fig.set_figheight(10)
     fig.set_figwidth(10)
     ax = fig.add_subplot(projection='3d')
+    df.describe()
     
     x = df[x_key].unique()
     x.sort()
@@ -93,8 +94,6 @@ def visualize_results(path: str, sim_type: str):
             print(dataframe)
     except Exception as e:
         print(e)
-
-    all_exps = pd.read_csv(path)
     
     # Common transformations for all simulation types
     all_exps['drone_speed'] = 1/1.444447 * all_exps['drone_speed']
@@ -125,8 +124,7 @@ def visualize_results(path: str, sim_type: str):
         
         # 3D visualization for vertical scenarios
         violations = isolate(all_exps, {"is_violation": 1})
-        plot_point_cloud(violations, "drone_speed", "drone_ascent_rate", "drone_response_distance", 
-                        "Vertical Violation Distribution", point_radius=20)
+        plot_point_cloud(violations, "drone_speed", "drone_ascent_rate", "drone_response_distance", "Vertical Violation Distribution", point_radius=20)
     
     # Common visualizations for all types
     heatmap(all_exps, "drone_response_distance", "drone_speed", f"{sim_type} Response Distance Analysis")
