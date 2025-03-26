@@ -4,9 +4,9 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import csv
 from julia import Main
 import julia
-from PyQt5.QtWidgets import (
-    QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QComboBox, QPushButton, QTextEdit, QFileDialog
-)
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 import time
 import subprocess
 import visualize
@@ -18,6 +18,7 @@ class SimulationApp(QWidget):
         self.init_ui()
         self.julia_initialized = False  # Flag to track Julia initialization
         self.sim_type = ""
+        self.model = QStandardItemModel()
 
     def init_ui(self):
         self.layout = QVBoxLayout()  # Make layout an instance variable
@@ -52,7 +53,8 @@ class SimulationApp(QWidget):
 
         # Add an output log for messages
         self.output_log = QTextEdit()
-        self.output_log.setReadOnly(False)  # Make it read-only for logs
+        self.output_log.setReadOnly(True)  # Make it read-only for logs
+        self.output_log.setMaximumHeight(150)
         self.layout.addWidget(self.output_log)
 
         self.setLayout(self.layout)
@@ -78,6 +80,7 @@ class SimulationApp(QWidget):
     def create_input_fields(self, option_selected):
         """Creates labeled input fields for simulation parameters."""
         # Define parameters based on the selected option
+        params = []
         if option_selected == "Vertical":
             params = ["drone_speed", "heli_speed", "drone_x_pos", "drone_y_pos", "drone_direction", "drone_response_distance", "drone_ascent_rate"]
         elif option_selected == "Row":
@@ -146,21 +149,22 @@ class SimulationApp(QWidget):
         """Runs the Julia simulation with user-provided parameters."""
 
         # Create the CSV data
-        self.create_csv()
+        # self.create_csv()
 
-        # Run Julia simulation and log the results
-        self.output_log.append("Running simulation...")
-        print("Running simulation...")
+        # # Run Julia simulation and log the results
+        # self.output_log.append("Running simulation...")
+        # print("Running simulation...")
 
-        # Initialize Julia if not already initialized
-        self.initialize_julia()
+        # # Initialize Julia if not already initialized
+        # self.initialize_julia()
 
-        if not self.julia_initialized:
-            self.output_log.append("Julia initialization failed. Cannot run simulation.")
-            print("Julia initialization failed. Cannot run simulation.")
-            return
+        # if not self.julia_initialized:
+        #     self.output_log.append("Julia initialization failed. Cannot run simulation.")
+        #     print("Julia initialization failed. Cannot run simulation.")
+        #     return
 
-        visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
+        # visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
+        self.display_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv")
 
     def create_csv(self):
         """Creates a CSV file using the simulation parameters."""
@@ -244,6 +248,106 @@ class SimulationApp(QWidget):
             self.output_log.append(f"Error: {str(e)}")
         except Exception as e:
             self.output_log.append(f"An unexpected error occurred: {str(e)}")
+
+    def display_results(self, result_file: str):
+        """Displays each row of the results CSV file in a GUI."""
+        try:
+            # Open the CSV file
+            with open(result_file, newline='', encoding='utf-8') as csv_file:
+                reader = csv.DictReader(csv_file)
+                self.init_model()
+                # initialize table_view formatting and options
+                self.table_view = QTableView()
+                self.table_view.setModel(self.model)
+                self.table_view.verticalHeader().setVisible(False)
+                self.table_view.horizontalHeader().setDefaultAlignment(Qt.AlignmentFlag.AlignLeft)
+                self.table_view.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+                self.table_view.setSortingEnabled(True)
+                # initialize search box
+                self.search_results = QLineEdit("")
+                self.search_results.setPlaceholderText("Search the results...")
+                self.search_results.setObjectName(u"search_results")
+                self.search_results.setAlignment(Qt.AlignmentFlag.AlignLeft)
+                self.search_results.textChanged.connect(self.filter_results)
+
+                self.layout.addWidget(self.table_view)
+                self.layout.addWidget(self.search_results)
+
+                self.populate_model(reader)
+                self.init_proxy_model()
+        except Exception as e:
+            self.output_log.append(f"Error displaying results: {str(e)}")
+
+    def init_model(self):
+        """Adds the appropriate table header columns depending on self.sim_type"""
+        self.model.clear()
+        header_labels = ["Step", "Contact Level", "Scenario"]
+
+        if self.sim_type[0] == "Vertical":
+            header_labels.append("Step")
+            header_labels.append("Contact Level")
+            header_labels.append("Scenario")
+            header_labels.append("Drone Ascent Rate")
+            header_labels.append("Drone Direction")
+            header_labels.append("Drone Response Distance")
+            header_labels.append("Drone Speed")
+            header_labels.append("Drone X Pos")
+            header_labels.append("Drone Y Pos")
+            header_labels.append("Heli Speed")
+            header_labels.append("Min Distance")
+        elif self.sim_type[0] == "Horizontal":
+            header_labels.append("Step")
+            header_labels.append("Contact Level")
+            header_labels.append("Scenario")
+            header_labels.append("Drone Direction")
+            header_labels.append("Drone Horizontal Turn Angle")
+            header_labels.append("Drone Horizontal Turn Rate")
+            header_labels.append("Drone Response Distance")
+            header_labels.append("Drone Speed")
+            header_labels.append("Drone X Pos")
+            header_labels.append("Drone Y Pos")
+            header_labels.append("Heli Speed")
+            header_labels.append("Drone Min Distance")
+        elif self.sim_type[0] == "Row":
+            header_labels.append("Step")
+            header_labels.append("Contact Level")
+            header_labels.append("Scenario")
+            header_labels.append("Drone Direction")
+            header_labels.append("Drone Horizontal Turn Angle")
+            header_labels.append("Drone Horizontal Turn Rate")
+            header_labels.append("Drone Response Distance")
+            header_labels.append("Drone Speed")
+            header_labels.append("Drone X Pos") 
+            header_labels.append("Drone Y Pos") 
+            header_labels.append("Force Right Turn")
+            header_labels.append("Heli Speed")
+            header_labels.append("Min Distance")
+            print(header_labels)
+        self.model.setHorizontalHeaderLabels(header_labels)
+
+    def filter_results(self):
+        """Applies self.search_results to search the table"""
+        search_text = self.search_results.text()
+        if search_text:
+            self.proxy_model.setFilterRegExp(QRegExp(search_text, Qt.CaseSensitivity.CaseInsensitive))
+        else:
+            self.proxy_model.setFilterRegExp("")
+
+    def populate_model(self, reader):
+        """Adds data from the CSV reader to self.model"""
+        for row in reader:
+            row_data = []
+            for value in row.values():
+                result = QStandardItem(value)
+                row_data.append(result)
+            self.model.appendRow(row_data)
+
+    def init_proxy_model(self):
+        """Initializes the proxy model for sorting and searching the table"""
+        self.proxy_model = QSortFilterProxyModel(self)
+        self.proxy_model.setSourceModel(self.model)
+        self.proxy_model.setFilterKeyColumn(-1)
+        self.table_view.setModel(self.proxy_model)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
