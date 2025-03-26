@@ -219,10 +219,43 @@
 
 - Worked on integrating Julia and Python further
   - Julia now reads the `params.csv` outputted by gui.py
-- Started working on running Gazebo sims from a Docker container in Ubuntu 22.04
+- Considered working on running Gazebo sims from a Docker container in Ubuntu 22.04
+    - Docker containers don't usually have graphics, so this would be difficult without some hacky workarounds
 - Future work: Run visualization after simulation completion in python gui
 
 ## 3/3/2025
 
+- Fixed and pushed updated `round1-full.jl` and `search.jl`
 - Started working on displaying result visualizations after simulation completion
 
+## 3/6/2025
+
+- Discussed upgrading from Ubuntu 20.04 to 22.04 to get Gazebo working
+- Tested the current Julia and Python code on an Ubuntu 22.04 VM, it works
+
+## 3/11/2025
+
+- Spring Break
+- Represented Keysight at the US Cyber Trust Mark technical requirements committee meeting
+    - See: https://www.fcc.gov/CyberTrustMark
+
+## 3/13/2025
+
+- Spring Break
+- Had a job interview for a Keysight R&D position
+
+## 3/18/2025
+
+- Regrouped from break, finalized the transition from Ubuntu 20.04 to 22.04
+- Ran Jim's excellent installation script with his documentation, troubleshot a small error in class
+- Discussed a display of each low-fidelity simulation for users to investigate and run in high-fidelity
+
+## 3/20/2025
+
+- Worked on the simulation visualizations, goal is to finish it this week
+- The result data isn't in the correct format for the graphs to display, but I don't know what format it wants
+
+## 3/25/2025
+
+- Was out of town and drove back today
+- I think I'll put the visualizations aside and work on the result display feature Jim talked about in class
