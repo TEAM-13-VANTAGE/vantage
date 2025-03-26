@@ -1,4 +1,6 @@
 import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import csv
 from julia import Main
 import julia
@@ -7,7 +9,7 @@ from PyQt5.QtWidgets import (
 )
 import time
 import subprocess
-import os
+import visualize
 
 class SimulationApp(QWidget):
     def __init__(self):
@@ -15,6 +17,7 @@ class SimulationApp(QWidget):
         self.param_inputs = {}  # Dictionary to store input fields
         self.init_ui()
         self.julia_initialized = False  # Flag to track Julia initialization
+        self.sim_type = ""
 
     def init_ui(self):
         self.layout = QVBoxLayout()  # Make layout an instance variable
@@ -157,6 +160,8 @@ class SimulationApp(QWidget):
             print("Julia initialization failed. Cannot run simulation.")
             return
 
+        visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
+
     def create_csv(self):
         """Creates a CSV file using the simulation parameters."""
         self.output_log.append("Adding parameters to CSV file.")
@@ -210,9 +215,10 @@ class SimulationApp(QWidget):
         try:
             with open(csv_filename, newline='', encoding='utf-8') as csv_file:
                 reader = csv.reader(csv_file)
-                sim_type = next(reader) # get sim type header
+                self.sim_type = next(reader) # get sim type header
+                print('Sim type: ', self.sim_type)
 
-                if sim_type[0] not in ["Vertical", "Horizontal", "Row"]: # the sim types should be an Enum...
+                if self.sim_type[0] not in ["Vertical", "Horizontal", "Row"]: # the sim types should be an Enum...
                     csv_file.close()
                     raise ValueError("The CSV file cannot be parsed (missing or invalid simulation type)")
 
@@ -244,4 +250,3 @@ if __name__ == "__main__":
     window = SimulationApp()
     window.show()
     sys.exit(app.exec_())
-
