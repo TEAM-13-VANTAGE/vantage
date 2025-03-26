@@ -259,3 +259,9 @@
 
 - Was out of town and drove back today
 - I think I'll put the visualizations aside and work on the result display feature Jim talked about in class
+
+### 3/26/2025
+
+- Merged the existing code to visualize the results to main
+- Started working on the result display
+- Finished the results table display :D
