@@ -284,9 +284,6 @@ class SimulationApp(QWidget):
         header_labels = ["Step", "Contact Level", "Scenario"]
 
         if self.sim_type[0] == "Vertical":
-            header_labels.append("Step")
-            header_labels.append("Contact Level")
-            header_labels.append("Scenario")
             header_labels.append("Drone Ascent Rate")
             header_labels.append("Drone Direction")
             header_labels.append("Drone Response Distance")
@@ -296,9 +293,6 @@ class SimulationApp(QWidget):
             header_labels.append("Heli Speed")
             header_labels.append("Min Distance")
         elif self.sim_type[0] == "Horizontal":
-            header_labels.append("Step")
-            header_labels.append("Contact Level")
-            header_labels.append("Scenario")
             header_labels.append("Drone Direction")
             header_labels.append("Drone Horizontal Turn Angle")
             header_labels.append("Drone Horizontal Turn Rate")
@@ -309,9 +303,6 @@ class SimulationApp(QWidget):
             header_labels.append("Heli Speed")
             header_labels.append("Drone Min Distance")
         elif self.sim_type[0] == "Row":
-            header_labels.append("Step")
-            header_labels.append("Contact Level")
-            header_labels.append("Scenario")
             header_labels.append("Drone Direction")
             header_labels.append("Drone Horizontal Turn Angle")
             header_labels.append("Drone Horizontal Turn Rate")
