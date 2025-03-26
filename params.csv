@@ -1,9 +1,9 @@
 Vertical
 param_name,start,stop,steps,unit
 drone_speed,1.0,10.0,2,feet
-heli_speed,2.0,30.0,1,feet
-drone_x_pos,10.0,40.0,5,feet
-drone_y_pos,5.0,10.0,2,feet
-drone_direction,6.0,70.0,1,feet
-drone_response_distance,10.0,80.0,5,feet
-drone_ascent_rate,9.0,10.0,2,feet
+heli_speed,1.0,30.0,1,feet
+drone_x_pos,1.0,40.0,5,feet
+drone_y_pos,1.0,10.0,2,feet
+drone_direction,1.0,70.0,1,feet
+drone_response_distance,1.0,80.0,5,feet
+drone_ascent_rate,1.0,10.0,2,feet
