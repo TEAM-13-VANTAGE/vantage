@@ -49,7 +49,6 @@ def plot_point_cloud(df: pd.DataFrame, x_key: str, y_key: str, z_key: str, title
     fig.set_figheight(10)
     fig.set_figwidth(10)
     ax = fig.add_subplot(projection='3d')
-    df.describe()
     
     x = df[x_key].unique()
     x.sort()
@@ -71,11 +70,8 @@ def plot_point_cloud(df: pd.DataFrame, x_key: str, y_key: str, z_key: str, title
     s = point_radius ** 2 if point_radius else None
 
     # print(len(points), points)
-    points = np.array(points)
-    x_vals, y_vals, z_vals = points[:, 0], points[:, 1], points[:, 2]
 
-
-    scat = ax.scatter(x=x_vals, y=y_vals, c=temps, alpha=0.7, s=s)
+    scat = ax.scatter(*np.array(points).T, c=temps, alpha=0.7, s=s)
     ax.set_xlabel(x_key)
     ax.set_ylabel(y_key)
     ax.set_zlabel(z_key)
@@ -90,6 +86,14 @@ def visualize_results(path: str, sim_type: str):
         path (str): Path to the CSV results file
         sim_type (str): Type of simulation ('Vertical', 'Row', or 'Horizontal')
     """
+    try: 
+        with open(path, "r") as f:
+            f.readline()
+            dataframe = pd.read_csv(f)
+            print(dataframe)
+    except Exception as e:
+        print(e)
+
     all_exps = pd.read_csv(path)
     
     # Common transformations for all simulation types
@@ -121,7 +125,8 @@ def visualize_results(path: str, sim_type: str):
         
         # 3D visualization for vertical scenarios
         violations = isolate(all_exps, {"is_violation": 1})
-        plot_point_cloud(violations, "drone_speed", "drone_ascent_rate", "drone_response_distance", "Vertical Violation Distribution", point_radius=20)
+        plot_point_cloud(violations, "drone_speed", "drone_ascent_rate", "drone_response_distance", 
+                        "Vertical Violation Distribution", point_radius=20)
     
     # Common visualizations for all types
     heatmap(all_exps, "drone_response_distance", "drone_speed", f"{sim_type} Response Distance Analysis")
