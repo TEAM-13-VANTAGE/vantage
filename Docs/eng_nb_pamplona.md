@@ -159,6 +159,42 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
    - Ardupilot not running properly; can't find mavproxy
    - System limited to Python 3.8 due to Ubuntu 20.04
    - Python controller breaking due to older version
+
+## Sprint 4
+### 2/20/2025
+- Began sprint
+- Started researching on upgrading to Ubuntu 22.04
+- Scrapped all that was done on Ubuntu 20.04
+
+### 2/25/2025
+- Installed Ubuntu 22.04 on pc
+
+### 2/27/2025
+- Was able to install ROS2, Gazebo, and Ardupilot smoothly on VM
+- Starting research again on how to implement lidar + multidrone
+
+### 3/04/2025
+- Working on more research
+- Assisted Jack with some issues on the Julia and Python side
+- Worked on SDD
+
+## Sprint 5
+### 3/18/2025
+- Started new sprint
+- Got LiDAR + Multidrone working on Ubuntu 22.04!
+- Made plan for rest of semester
+- Created installation guide for the system on a markdown file
+
+### 3/20/2025
+- Assisted everyone with installation for the system
+
+### 3/25/2025
+- Started research on object avoidance implementations
+- Started Python script for parameter conversion
+
+### 3/27/2025
+- Not much, getting cooked by other classes :,)
+
   
 
 
