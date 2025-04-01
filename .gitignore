@@ -27,3 +27,6 @@ docs/site/
 # environment.
 Manifest.toml
 # Project.toml
+
+# Pycache directory
+__pycache__/
