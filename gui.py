@@ -231,7 +231,7 @@ class SimulationApp(QWidget):
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
 
-    def launch_high_fidelity_simulation(self):
+    def launch_high_fidelity_simulation(self): # TODO: Check if any low fidelity sim results have boxes checked
         """Launch Gazebo, ArduCopter, and MAVProxy in WSL."""
         try:
             # Start Gazebo with the specified world file in WSL
@@ -278,7 +278,7 @@ class SimulationApp(QWidget):
         except Exception as e:
             self.output_log.append(f"Error displaying results: {str(e)}")
 
-    def init_model(self):
+    def init_model(self): # TODO: Add check boxes
         """Adds the appropriate table header columns depending on self.sim_type"""
         self.model.clear()
         header_labels = ["Step", "Contact Level", "Scenario"]

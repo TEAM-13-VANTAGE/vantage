@@ -48,7 +48,7 @@ for title in all_titles
         leftjoin(
             mdf[end:end, :],
             DataFrame(Dict(
-                :min_dist => "min_dist" ∈ keys(vars) ? vars["min_dist"] : missing,
+                :min_dist => "min_dist" ∈ keys(vars) ? vars["min_dist"] : missing, # TODO: fix this to populate the min_dist column in CSV
                 :step => mdf[end, :step],
                 comb...,
             )),
