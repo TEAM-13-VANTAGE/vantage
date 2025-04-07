@@ -177,3 +177,12 @@ We decided to go back into the message module and we managed our first collision
 
 week of 2/20/2024 Tuesday to Thursday:
 Tuesday was the end of the sprint focused on researching the load module message and met up with the product owner on Thursday. Thursday we planned out the rest of the semester or sprints. Mostly for those sprints for my load it is looking into SDD and configuring the world for gazebo implementation.
+
+
+
+
+Ok I did forget to update this notebook in a minute but here is a summary of atleast the past 2 weeks 23 march-5th of april
+Mostly it has been on trying to configure the virtual box machine. During this period of time we had a issue where ROS would not properly work leading the project to slightly have to backtrack into the 24.04 version of ubuntu. This lead to having to wait a bit until this was figured out in order to be able to further design the world simualtion for this project. While this is created and already made by the week of March 16th we needed to further improve it and double check it worked on the newer version.
+
+esesntially we got the issue fixed recently and now we are almost done with the minimum viable product. This allows us to further try to improve the product in the little time we have left. for the past week I have researched a bit on how to get the values for the Gazebo sim I think we got it down?
+I will wait on the meeting on the 8th and further report for it.
