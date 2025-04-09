@@ -265,3 +265,32 @@
 - Merged the existing code to visualize the results to main
 - Started working on the result display
 - Finished the results table display :D
+
+## 3/27/2025
+
+- Showed results table to the team and elicited feedback
+
+
+## 4/1/2025
+
+- Discussed the remaining time left with the team and planned the rest of the timeline
+- We will focus on implementation and completing the project by the end of the semester
+- We did an April Fools joke on Akbas that we had to start over again lol
+
+## 4/3/2025
+
+- Jim mentioend that there should be a check box on each row the user can select
+  - the user will be able to check the boxes on rows they want to explore further and then run them in high-fidelity
+- I started researching ways of adding the check boxes
+
+## 4/8/2025
+
+- Started implementing the checkboxes, they work so far
+- Next steps: Handle the checked rows by adding their contents to a list of high-fidelity parameters
+
+## 4/9/2025
+
+- Finished check boxes and pushed to GitHub
+- When a box is checked, the row's data is added to a 2-D list of sim parameters
+- When a box is unchecked, that row's data is removed from the list
+- When we run the high-fidelity sim, we can use the list of parameters created from the check boxes
