@@ -4,55 +4,55 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import csv
 from julia import Main
 import julia
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PyQt5 import QtWidgets, QtGui, QtCore
+# from PyQt5.QtCore import
 import time
 import subprocess
-import visualize
+# import visualize
 
-class SimulationApp(QWidget):
+class SimulationApp(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.param_inputs = {}  # Dictionary to store input fields
         self.init_ui()
         self.julia_initialized = False  # Flag to track Julia initialization
         self.sim_type = ""
-        self.model = QStandardItemModel()
+        self.model = QtGui.QStandardItemModel()
+        self.high_fidelity_parameters = []
 
     def init_ui(self):
-        self.layout = QVBoxLayout()  # Make layout an instance variable
+        self.layout = QtWidgets.QVBoxLayout()  # Make layout an instance variable
 
         # Add a button to import simulation parameters
-        self.import_button = QPushButton("Import Parameters from File")
+        self.import_button = QtWidgets.QPushButton("Import Parameters from File")
         self.import_button.clicked.connect(self.import_params_file)
         self.layout.addWidget(self.import_button)
 
         options = ["Vertical", "Horizontal", "Row"]
-        self.params_options = QComboBox()
+        self.params_options = QtWidgets.QComboBox()
         self.params_options.addItems(options)
         self.params_options.currentIndexChanged.connect(self.update_input_fields)  # Connect signal
         self.layout.addWidget(self.params_options)
 
         # Initialize input fields container
-        self.input_fields_container = QVBoxLayout()  # Separate container for input fields
+        self.input_fields_container = QtWidgets.QVBoxLayout()  # Separate container for input fields
         self.layout.addLayout(self.input_fields_container)  # Add it to the main layout
 
         # Initialize input fields with the default option
         self.create_input_fields(self.params_options.currentText())
 
         # Add a button to run or process the inputs
-        self.run_button = QPushButton("Run Simulation")
+        self.run_button = QtWidgets.QPushButton("Run Simulation")
         self.run_button.clicked.connect(self.run_simulation)
         self.layout.addWidget(self.run_button)
 
         # Add a button to launch the high-fidelity module
-        self.hf_button = QPushButton("Launch High-Fidelity Simulation")
+        self.hf_button = QtWidgets.QPushButton("Launch High-Fidelity Simulation")
         self.hf_button.clicked.connect(self.launch_high_fidelity_simulation)
         self.layout.addWidget(self.hf_button)
 
         # Add an output log for messages
-        self.output_log = QTextEdit()
+        self.output_log = QtWidgets.QTextEdit()
         self.output_log.setReadOnly(True)  # Make it read-only for logs
         self.output_log.setMaximumHeight(150)
         self.layout.addWidget(self.output_log)
@@ -94,21 +94,21 @@ class SimulationApp(QWidget):
         unit_options = ["feet", "mph", "degrees", "degrees/s", "bool"]
 
         for param_name in params:
-            row = QHBoxLayout()
+            row = QtWidgets.QHBoxLayout()
 
             # Add label for the parameter
-            row.addWidget(QLabel(param_name))
+            row.addWidget(QtWidgets.QLabel(param_name))
 
             # Create input fields for start, stop, and steps
-            start_input = QLineEdit()
+            start_input = QtWidgets.QLineEdit()
             start_input.setPlaceholderText("Start")
-            stop_input = QLineEdit()
+            stop_input = QtWidgets.QLineEdit()
             stop_input.setPlaceholderText("Stop")
-            steps_input = QLineEdit()
+            steps_input = QtWidgets.QLineEdit()
             steps_input.setPlaceholderText("Steps")
 
             # Create a dropdown for unit selection
-            unit_dropdown = QComboBox()
+            unit_dropdown = QtWidgets.QComboBox()
             unit_dropdown.addItems(unit_options)
 
             # Add inputs to the row layout
@@ -207,14 +207,14 @@ class SimulationApp(QWidget):
             for i in range(1, len(row)):
                 # Checks if the input at this index is a LineEdit or ComboBox, sets it to the CSV value
                 match self.param_inputs[row[0]][param_values[i]]:
-                    case QLineEdit():
+                    case QtWidgets.QLineEdit():
                         self.param_inputs[row[0]][param_values[i]].setText(row[i])
-                    case QComboBox():
+                    case QtWidgets.QComboBox():
                         self.param_inputs[row[0]][param_values[i]].setCurrentText(row[i])
 
     def import_params_file(self):
         """Opens and attempts to import a CSV file"""
-        csv_filename = QFileDialog.getOpenFileName(self, "Import Parameters from File", ".", "CSV File (*.csv)")[0]
+        csv_filename = QtWidgets.QFileDialog.getOpenFileName(self, "Import Parameters from File", ".", "CSV File (*.csv)")[0]
 
         try:
             with open(csv_filename, newline='', encoding='utf-8') as csv_file:
@@ -231,7 +231,7 @@ class SimulationApp(QWidget):
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
 
-    def launch_high_fidelity_simulation(self): # TODO: Check if any low fidelity sim results have boxes checked
+    def launch_high_fidelity_simulation(self):
         """Launch Gazebo, ArduCopter, and MAVProxy in WSL."""
         try:
             # Start Gazebo with the specified world file in WSL
@@ -257,28 +257,29 @@ class SimulationApp(QWidget):
                 reader = csv.DictReader(csv_file)
                 self.init_model()
                 # initialize table_view formatting and options
-                self.table_view = QTableView()
+                self.table_view = QtWidgets.QTableView()
                 self.table_view.setModel(self.model)
                 self.table_view.verticalHeader().setVisible(False)
-                self.table_view.horizontalHeader().setDefaultAlignment(Qt.AlignmentFlag.AlignLeft)
-                self.table_view.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+                self.table_view.horizontalHeader().setDefaultAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+                self.table_view.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
                 self.table_view.setSortingEnabled(True)
                 # initialize search box
-                self.search_results = QLineEdit("")
+                self.search_results = QtWidgets.QLineEdit("")
                 self.search_results.setPlaceholderText("Search the results...")
                 self.search_results.setObjectName(u"search_results")
-                self.search_results.setAlignment(Qt.AlignmentFlag.AlignLeft)
+                self.search_results.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
                 self.search_results.textChanged.connect(self.filter_results)
 
                 self.layout.addWidget(self.table_view)
                 self.layout.addWidget(self.search_results)
 
                 self.populate_model(reader)
+                self.init_checkboxes()
                 self.init_proxy_model()
         except Exception as e:
             self.output_log.append(f"Error displaying results: {str(e)}")
 
-    def init_model(self): # TODO: Add check boxes
+    def init_model(self):
         """Adds the appropriate table header columns depending on self.sim_type"""
         self.model.clear()
         header_labels = ["Step", "Contact Level", "Scenario"]
@@ -308,19 +309,20 @@ class SimulationApp(QWidget):
             header_labels.append("Drone Horizontal Turn Rate")
             header_labels.append("Drone Response Distance")
             header_labels.append("Drone Speed")
-            header_labels.append("Drone X Pos") 
-            header_labels.append("Drone Y Pos") 
+            header_labels.append("Drone X Pos")
+            header_labels.append("Drone Y Pos")
             header_labels.append("Force Right Turn")
             header_labels.append("Heli Speed")
             header_labels.append("Min Distance")
-            print(header_labels)
+        header_labels.append("Selected")
+        print(header_labels)
         self.model.setHorizontalHeaderLabels(header_labels)
 
     def filter_results(self):
         """Applies self.search_results to search the table"""
         search_text = self.search_results.text()
         if search_text:
-            self.proxy_model.setFilterRegExp(QRegExp(search_text, Qt.CaseSensitivity.CaseInsensitive))
+            self.proxy_model.setFilterRegExp(QtCore.QRegExp(search_text, QtCore.Qt.CaseSensitivity.CaseInsensitive))
         else:
             self.proxy_model.setFilterRegExp("")
 
@@ -329,19 +331,51 @@ class SimulationApp(QWidget):
         for row in reader:
             row_data = []
             for value in row.values():
-                result = QStandardItem(value)
+                result = QtGui.QStandardItem(value)
                 row_data.append(result)
             self.model.appendRow(row_data)
 
+    def init_checkboxes(self):
+        # get columns and rows in table and do this
+        selected_column = self.model.columnCount() - 1
+        for row in range(self.model.rowCount()):
+            checkBox = QtGui.QStandardItem()
+            checkBox.setFlags(QtCore.Qt.ItemFlag.ItemIsUserCheckable | QtCore.Qt.ItemFlag.ItemIsEnabled)
+            checkBox.setCheckState(QtCore.Qt.CheckState.Unchecked)
+            self.model.setItem(row, selected_column, checkBox)
+        self.model.itemChanged.connect(self.handleCheckBoxClicked)
+
+    def handleCheckBoxClicked(self, item):
+        # check if box is clicked and add row to a list of params to run in high-fidelity
+        if item.column() != self.model.columnCount() - 1:
+            return
+
+        row = item.row()
+        row_data = []
+
+        for col in range(self.model.columnCount() - 1):
+            value = self.model.item(row, col).text()
+            row_data.append(value)
+
+        if item.checkState() == QtCore.Qt.Checked:
+            if row_data not in self.high_fidelity_parameters:
+                self.high_fidelity_parameters.append(row_data)
+                print(f"Added row: {row_data}")
+        else:
+            if row_data in self.high_fidelity_parameters:
+                self.high_fidelity_parameters.remove(row_data)
+                print(f"Removed row: {row_data}")
+        print(f"High Fidelity Parameters List: {self.high_fidelity_parameters}")
+
     def init_proxy_model(self):
         """Initializes the proxy model for sorting and searching the table"""
-        self.proxy_model = QSortFilterProxyModel(self)
+        self.proxy_model = QtCore.QSortFilterProxyModel(self)
         self.proxy_model.setSourceModel(self.model)
         self.proxy_model.setFilterKeyColumn(-1)
         self.table_view.setModel(self.proxy_model)
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     window = SimulationApp()
     window.show()
     sys.exit(app.exec_())
