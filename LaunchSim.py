@@ -22,8 +22,8 @@ def run_arducopter():
     print("Waiting for 30 seconds before launching ArduCopter simulations...")
     time.sleep(30)
     
-    vehicle_command1 = os.path.expanduser('~/ardupilot/ArduCopter/sim_vehicle.py')
-    vehicle_command2 = os.path.expanduser('~/ardupilot/ArduCopter/sim_vehicle.py')
+    vehicle_command1 = os.path.expanduser('sim_vehicle.py')
+    vehicle_command2 = os.path.expanduser('sim_vehicle.py')
     
     # Launch the first drone
     subprocess.Popen([vehicle_command1, '-v', 'ArduCopter', '-f', 'gazebo-drone1', '-I0'])

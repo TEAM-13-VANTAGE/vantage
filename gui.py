@@ -232,22 +232,18 @@ class SimulationApp(QWidget):
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
 
     def launch_high_fidelity_simulation(self): # TODO: Check if any low fidelity sim results have boxes checked
-        """Launch Gazebo, ArduCopter, and MAVProxy in WSL."""
+        """Launch Gazebo, ArduCopter, and MAVProxy."""
         try:
             # Start Gazebo with the specified world file in WSL
-            self.output_log.append("Launching Drone 0...")
-            subprocess.run(['wsl', '-d', 'Ubuntu-20.04', 'bash', '-c', '~/run_program.sh'], check=True)
-            self.output_log.append("Gazebo launched successfully.")
-
-            # Wait for Gazebo to settle before launching drones
-            self.output_log.append("Waiting 30 seconds before launching drones...")
-            time.sleep(30)
-
+            #TODO: work on unit conversion
+            self.output_log.append("Launching high-fidelity module...")
+            subprocess.run(['./run_program.sh'], check=True)
 
         except subprocess.CalledProcessError as e:
             self.output_log.append(f"Error: {str(e)}")
         except Exception as e:
             self.output_log.append(f"An unexpected error occurred: {str(e)}")
+            
 
     def display_results(self, result_file: str):
         """Displays each row of the results CSV file in a GUI."""
