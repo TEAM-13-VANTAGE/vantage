@@ -231,12 +231,9 @@ class SimulationApp(QtWidgets.QWidget):
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
 
-    def launch_high_fidelity_simulation(self):
-        """Launch Gazebo, ArduCopter, and MAVProxy in WSL."""
     def launch_high_fidelity_simulation(self): # TODO: Check if any low fidelity sim results have boxes checked
         """Launch Gazebo, ArduCopter, and MAVProxy."""
         try:
-            # Start Gazebo with the specified world file in WSL
             #TODO: work on unit conversion
             self.output_log.append("Launching high-fidelity module...")
             subprocess.run(['./run_program.sh'], check=True)
