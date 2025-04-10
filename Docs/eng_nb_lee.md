@@ -294,3 +294,9 @@
 - When a box is checked, the row's data is added to a 2-D list of sim parameters
 - When a box is unchecked, that row's data is removed from the list
 - When we run the high-fidelity sim, we can use the list of parameters created from the check boxes
+
+## 4/10/2025
+
+- Group showcased the GUI to Dr. Akbas and Alejandro
+- Discussed timeline, we should finish the project by next week
+- I will work on ensuring SI unit consistencey
