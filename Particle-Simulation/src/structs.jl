@@ -157,6 +157,8 @@ units_to_std = Dict(
     # rates 
     "fps" => 1.0,
     "mph" => 1.46667,
+    "km/h" => 1.09728,
+    "m/s" => 0.304800,
     # Unitless 
     "count" => 1.0,
     "index" => 1.0,
@@ -189,6 +191,8 @@ units_from_std = Dict(
     # rate
     "fps" => 1.0,
     "mph" => 0.681818,
+    "km/h" => 1 / 1.09728,
+    "m/s" => 1 / 0.304800,
     "count" => 1.0,
     "index" => 1.0,
     "N/A" => 1.0,
