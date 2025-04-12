@@ -1,9 +1,10 @@
-Vertical
+Horizontal
 param_name,start,stop,steps,unit
-drone_speed,30.0,50.0,2,mph
-heli_speed,100.0,125.0,2,mph
-drone_x_pos,6000.0,7000.0,1,feet
-drone_y_pos,5980.0,11990.0,2,feet
+drone_speed,30.0,50.0,2,km/h
+heli_speed,100.0,125.0,2,km/h
+drone_x_pos,6000.0,7000.0,1,meters
+drone_y_pos,5980.0,11990.0,2,meters
 drone_direction,270.0,270.0,0,degrees
-drone_response_distance,3000.0,10000.0,10,feet
-drone_ascent_rate,8.0,28.0,2,fps
+drone_response_distance,3.0,10.0,1,meters
+drone_horizontal_turn_rate,10.0,120.0,2,degrees/s
+drone_horizontal_turn_angle,20.0,50.0,2,degrees
