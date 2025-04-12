@@ -5,7 +5,6 @@ import csv
 from julia import Main
 import julia
 from PyQt5 import QtWidgets, QtGui, QtCore
-# from PyQt5.QtCore import
 import time
 import subprocess
 # import visualize
@@ -21,6 +20,7 @@ class SimulationApp(QtWidgets.QWidget):
         self.high_fidelity_parameters = []
 
     def init_ui(self):
+        """Initializes core UI elements"""
         self.layout = QtWidgets.QVBoxLayout()  # Make layout an instance variable
 
         # Add a button to import simulation parameters
@@ -77,7 +77,7 @@ class SimulationApp(QtWidgets.QWidget):
             elif item.layout():
                 self.clear_layout(item.layout())  # Recursively clear sub-layouts
 
-    def create_input_fields(self, option_selected):
+    def create_input_fields(self, option_selected): # TODO: ensure SI units are used and then test functionality
         """Creates labeled input fields for simulation parameters."""
         # Define parameters based on the selected option
         params = []
@@ -90,8 +90,7 @@ class SimulationApp(QtWidgets.QWidget):
 
         self.param_inputs = {}  # Tracks input fields for later access
 
-        # Predefined unit options
-        unit_options = ["feet", "mph", "degrees", "degrees/s", "bool"]
+
 
         for param_name in params:
             row = QtWidgets.QHBoxLayout()
@@ -109,7 +108,7 @@ class SimulationApp(QtWidgets.QWidget):
 
             # Create a dropdown for unit selection
             unit_dropdown = QtWidgets.QComboBox()
-            unit_dropdown.addItems(unit_options)
+            unit_dropdown.addItems(self.get_input_units(param_name))
 
             # Add inputs to the row layout
             row.addWidget(start_input)
@@ -128,6 +127,32 @@ class SimulationApp(QtWidgets.QWidget):
             # Add the row to the input fields container
             self.input_fields_container.addLayout(row)
 
+            # Set self.sim_type to the selected type
+            self.sim_type = option_selected
+
+    def get_input_units(self, param_name):
+        '''Given a param_name, return a list of appropriate unit types'''
+        # Predefined unit options
+        unit_options = {
+            'time': ['seconds', 'minnutes', 'hours'],
+            'distance': ['meters', 'kilometers'],
+            'angle': ['degrees', 'radians'],
+            'rate': ['m/s', 'km/h'],
+            'unitless': ['boolean']
+        }
+        print(param_name)
+        if param_name in ['drone_speed', 'heli_speed', 'drone_ascent_rate', 'drone_horizontal_turn_rate']:
+            return unit_options.get('rate')
+        if param_name in ['drone_x_pos', 'drone_y_pos', 'drone_response_distance']:
+            return unit_options.get('distance')
+        if param_name in ['drone_direction', 'drone_horizontal_turn_angle']:
+            return unit_options.get('angle')
+        if param_name in ['force_right_turn']:
+            return unit_options.get('unitless')
+        else:
+            print('param not in list: ', param_name)
+            return ['ERROR']
+        
 
     def initialize_julia(self):
         """Lazy initialization of Julia when the simulation is first run."""
@@ -149,20 +174,21 @@ class SimulationApp(QtWidgets.QWidget):
         """Runs the Julia simulation with user-provided parameters."""
 
         # Create the CSV data
-        # self.create_csv()
+        self.create_csv()
 
-        # # Run Julia simulation and log the results
-        # self.output_log.append("Running simulation...")
-        # print("Running simulation...")
+        # Run Julia simulation and log the results
+        self.output_log.append("Running simulation...")
+        print("Running simulation...")
 
-        # # Initialize Julia if not already initialized
-        # self.initialize_julia()
+        # Initialize Julia if not already initialized
+        self.initialize_julia()
 
-        # if not self.julia_initialized:
-        #     self.output_log.append("Julia initialization failed. Cannot run simulation.")
-        #     print("Julia initialization failed. Cannot run simulation.")
-        #     return
+        if not self.julia_initialized:
+            self.output_log.append("Julia initialization failed. Cannot run simulation.")
+            print("Julia initialization failed. Cannot run simulation.")
+            return
 
+        print('sim type: ', self.sim_type)
         # visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
         self.display_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv")
 
@@ -331,17 +357,19 @@ class SimulationApp(QtWidgets.QWidget):
             self.model.appendRow(row_data)
 
     def init_checkboxes(self):
-        # get columns and rows in table and do this
+        """Initializes the checkboxes in each table row"""
         selected_column = self.model.columnCount() - 1
+
         for row in range(self.model.rowCount()):
             checkBox = QtGui.QStandardItem()
             checkBox.setFlags(QtCore.Qt.ItemFlag.ItemIsUserCheckable | QtCore.Qt.ItemFlag.ItemIsEnabled)
             checkBox.setCheckState(QtCore.Qt.CheckState.Unchecked)
             self.model.setItem(row, selected_column, checkBox)
+
         self.model.itemChanged.connect(self.handleCheckBoxClicked)
 
     def handleCheckBoxClicked(self, item):
-        # check if box is clicked and add row to a list of params to run in high-fidelity
+        """Check if the item is clicked and adds the table row to the list of high-fidelity simulation parameters"""
         if item.column() != self.model.columnCount() - 1:
             return
 
