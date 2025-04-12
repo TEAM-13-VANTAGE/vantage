@@ -299,4 +299,29 @@
 
 - Group showcased the GUI to Dr. Akbas and Alejandro
 - Discussed timeline, we should finish the project by next week
-- I will work on ensuring SI unit consistencey
+- I will work on ensuring SI unit consistencey and clean up the code
+- Sent John a discord message to ask what units Julia uses
+
+## 4/12/2025
+
+- John says that Julia uses Imperial units, so I will have to convert them for Gazebo, which uses SI units. 
+  - I plan to change the UI to only use SI units and do unit conversion when data is moved to and from Julia
+  - This could potentially lose some precision, but precision would be lost regardless with a unit conversion. All units in the JuliaSim already use 6 significant figures of precision so I'll follow that
+- Some scratch work: 
+
+    ```rs
+    1mi = 5280ft
+    1h = 3600s
+    1fps = 1ft/1s
+    1mph = 1m/1h
+    1mph = 5280ft/3600s = 1.46667fps
+
+    1m = 3.28084ft
+    1h = 3600s
+    1km = 1000m = 3280.84ft
+    1fps = 1ft/1s
+    1km/h = 1ft/1s * 1km/3280.84ft * 3600s/1h = 1.09728fps
+    1m/s = 1ft/1s * 1m/3.28084ft * 1s/1s = 0.304800fps
+  ```
+
+- I also updated the way unit drop-down boxes are created for the UI so that only relevant units for each simulation parameter appear in each drop-down box
