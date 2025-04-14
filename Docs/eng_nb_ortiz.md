@@ -186,3 +186,9 @@ Mostly it has been on trying to configure the virtual box machine. During this p
 
 esesntially we got the issue fixed recently and now we are almost done with the minimum viable product. This allows us to further try to improve the product in the little time we have left. for the past week I have researched a bit on how to get the values for the Gazebo sim I think we got it down?
 I will wait on the meeting on the 8th and further report for it.
+
+
+Thursday 10 and frday the 11th: mostly coding and figuring a way to export the flioght pattern from gazebo to a bin file and from bin to CSV. This has also been the goal of the weekend a lot to work on still not really sure If i can get it to work in time.
+
+
+
