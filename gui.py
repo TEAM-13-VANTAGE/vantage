@@ -7,7 +7,8 @@ import julia
 from PyQt5 import QtWidgets, QtGui, QtCore
 import time
 import subprocess
-# import visualize
+import drone_launch
+import visualize
 
 class SimulationApp(QtWidgets.QWidget):
     def __init__(self):
@@ -189,7 +190,7 @@ class SimulationApp(QtWidgets.QWidget):
             return
 
         print('sim type: ', self.sim_type)
-        # visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
+        visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
         self.display_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv")
 
     def create_csv(self):
@@ -256,6 +257,8 @@ class SimulationApp(QtWidgets.QWidget):
                 csv_file.close()
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
+    
+    
 
     def launch_high_fidelity_simulation(self): # TODO: Check if any low fidelity sim results have boxes checked
         """Launch Gazebo, ArduCopter, and MAVProxy."""
@@ -263,6 +266,9 @@ class SimulationApp(QtWidgets.QWidget):
             #TODO: work on unit conversion
             self.output_log.append("Launching high-fidelity module...")
             subprocess.run(['./run_program.sh'], check=True)
+            drone_launch.init_drone_0(self.high_fidelity_parameters)
+            drone_launch.init_drone_1(self.high_fidelity_parameters)
+            self.output_log.append("High-fidelity module launched successfully.")
 
         except subprocess.CalledProcessError as e:
             self.output_log.append(f"Error: {str(e)}")

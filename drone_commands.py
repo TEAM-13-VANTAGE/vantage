@@ -58,8 +58,8 @@ def drone_takeoff(master, height):
 
 
 def send_position_target_local_ned(master,
-    time_boot_ms, target_system, target_component, coordinate_frame,
-    type_mask, x, y, z, vx, vy, vz, afx, afy, afz, yaw, yaw_rate
+    time_boot_ms, target_system, target_component, coordinate_frame=1,
+    type_mask=0b110111000000, x=0, y=0, z=0, vx=0, vy=0, vz=0, afx=0, afy=0, afz=0, yaw=0, yaw_rate=0
 ):
 
     master.mav.command_long_send(
