@@ -59,7 +59,7 @@ for title in all_titles
     results = vcat(all_data...)
     convert_df_units_from_std(results, units)
 
-    filename = "Particle-Simulation/results/round1/$title-results.csv"
+    filename = "/results/round1/$title-results.csv"
     if !isfile(filename)
         touch(filename)
         println("File created: $filename")
