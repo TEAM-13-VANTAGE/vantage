@@ -77,7 +77,7 @@ class SimulationApp(QtWidgets.QWidget):
             elif item.layout():
                 self.clear_layout(item.layout())  # Recursively clear sub-layouts
 
-    def create_input_fields(self, option_selected): # TODO: ensure SI units are used and then test functionality
+    def create_input_fields(self, option_selected):
         """Creates labeled input fields for simulation parameters."""
         # Define parameters based on the selected option
         params = []
@@ -189,8 +189,8 @@ class SimulationApp(QtWidgets.QWidget):
             return
 
         print('sim type: ', self.sim_type)
-        # visualize.visualize_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv", self.sim_type[0])
-        self.display_results(f"Particle-Simulation/results/round1/headon-{self.sim_type[0]}-results.csv")
+        # visualize.visualize_results(f"results/round1/headon-{self.sim_type}-results.csv", self.sim_type)
+        self.display_results(f"results/round1/headon-{self.sim_type}-results.csv")
 
     def create_csv(self):
         """Creates a CSV file using the simulation parameters."""
@@ -229,38 +229,42 @@ class SimulationApp(QtWidgets.QWidget):
         """Populates the GUI with parameters from a CSV file"""
         param_values = next(reader)
         for row in reader:
-            print('Importing sim row: ',row)
-            for i in range(1, len(row)):
-                # Checks if the input at this index is a LineEdit or ComboBox, sets it to the CSV value
-                match self.param_inputs[row[0]][param_values[i]]:
-                    case QtWidgets.QLineEdit():
-                        self.param_inputs[row[0]][param_values[i]].setText(row[i])
-                    case QtWidgets.QComboBox():
-                        self.param_inputs[row[0]][param_values[i]].setCurrentText(row[i])
+            if row != '':
+                print('Importing sim row: ',row)
+                for i in range(1, len(row)):
+                    # Checks if the input at this index is a LineEdit or ComboBox, sets it to the CSV value
+                    match self.param_inputs[row[0]][param_values[i]]:
+                        case QtWidgets.QLineEdit():
+                            self.param_inputs[row[0]][param_values[i]].setText(row[i])
+                        case QtWidgets.QComboBox():
+                            self.param_inputs[row[0]][param_values[i]].setCurrentText(row[i])
 
     def import_params_file(self):
         """Opens and attempts to import a CSV file"""
+        # Open file selection dialog
         csv_filename = QtWidgets.QFileDialog.getOpenFileName(self, "Import Parameters from File", ".", "CSV File (*.csv)")[0]
-
         try:
             with open(csv_filename, newline='', encoding='utf-8') as csv_file:
                 reader = csv.reader(csv_file)
-                self.sim_type = next(reader) # get sim type header
-                print('Sim type: ', self.sim_type)
+                first_line = next(reader)
 
-                if self.sim_type[0] not in ["Vertical", "Horizontal", "Row"]: # the sim types should be an Enum...
+                if first_line[0] not in ["Vertical", "Horizontal", "Row"]: # check if the first line is a valid sim type
                     csv_file.close()
                     raise ValueError("The CSV file cannot be parsed (missing or invalid simulation type)")
-
+                
+                self.sim_type = first_line[0]
+                print('Sim type from file: ', self.sim_type)
+                
+                self.params_options.setCurrentText(self.sim_type)
+                self.update_input_fields()
                 self.import_params(reader)
                 csv_file.close()
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
 
-    def launch_high_fidelity_simulation(self): # TODO: Check if any low fidelity sim results have boxes checked
+    def launch_high_fidelity_simulation(self):
         """Launch Gazebo, ArduCopter, and MAVProxy."""
         try:
-            #TODO: work on unit conversion
             self.output_log.append("Launching high-fidelity module...")
             subprocess.run(['./run_program.sh'], check=True)
 
@@ -305,7 +309,7 @@ class SimulationApp(QtWidgets.QWidget):
         self.model.clear()
         header_labels = ["Step", "Contact Level", "Scenario"]
 
-        if self.sim_type[0] == "Vertical":
+        if self.sim_type == "Vertical":
             header_labels.append("Drone Ascent Rate")
             header_labels.append("Drone Direction")
             header_labels.append("Drone Response Distance")
@@ -314,7 +318,7 @@ class SimulationApp(QtWidgets.QWidget):
             header_labels.append("Drone Y Pos")
             header_labels.append("Heli Speed")
             header_labels.append("Min Distance")
-        elif self.sim_type[0] == "Horizontal":
+        elif self.sim_type == "Horizontal":
             header_labels.append("Drone Direction")
             header_labels.append("Drone Horizontal Turn Angle")
             header_labels.append("Drone Horizontal Turn Rate")
@@ -324,7 +328,7 @@ class SimulationApp(QtWidgets.QWidget):
             header_labels.append("Drone Y Pos")
             header_labels.append("Heli Speed")
             header_labels.append("Drone Min Distance")
-        elif self.sim_type[0] == "Row":
+        elif self.sim_type == "Row":
             header_labels.append("Drone Direction")
             header_labels.append("Drone Horizontal Turn Angle")
             header_labels.append("Drone Horizontal Turn Rate")
