@@ -6,7 +6,6 @@
 - Exported the VM and shared it with the team
 - Wrote some shell scripts to start the Gazebo and ArduPilot demos
 - Helped teammates install Gazebo and ArduPilot
--
 
 ## 10/3/2024
 
@@ -325,3 +324,10 @@
   ```
 
 - I also updated the way unit drop-down boxes are created for the UI so that only relevant units for each simulation parameter appear in each drop-down box
+
+## 4/15/2025
+
+- Spoke with Dr. Akbas about finishing the project by Thursday, we will have it done by then as it's coming along well.
+- Fixed a bug Jim found where imported files didn't appropriately update the UI
+- Fixed a bug I found where the CSV reader would throw errors if it found empty lines while parsing
+- updated this file
