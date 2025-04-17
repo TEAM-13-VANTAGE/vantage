@@ -266,8 +266,8 @@ class SimulationApp(QtWidgets.QWidget):
             #TODO: work on unit conversion
             self.output_log.append("Launching high-fidelity module...")
             subprocess.run(['./run_program.sh'], check=True)
-            drone_launch.init_drone_0(self.high_fidelity_parameters)
-            drone_launch.init_drone_1(self.high_fidelity_parameters)
+            drone_launch.init_drone_0(self.high_fidelity_parameters, self.params_options.currentText())
+            drone_launch.init_drone_1(self.high_fidelity_parameters, self.params_options.currentText())
             self.output_log.append("High-fidelity module launched successfully.")
 
         except subprocess.CalledProcessError as e:
