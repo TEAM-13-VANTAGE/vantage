@@ -194,20 +194,3 @@ source ~/.bashrc
 sleep 1
 
 echo "✅ Installation Complete!"
-
-# -------------------------------
-# Instructions for Running Simulation
-# -------------------------------
-echo ""
-echo "🎯 To begin, open three separate terminals and run the following commands:"
-echo "-------------------------------------------------"
-echo "📌 Terminal 1: Start Gazebo"
-echo "  ➤ gz sim -v4 -r iris_runway.sdf"
-echo ""
-echo "📌 Terminal 2: Start ArduCopter Instance 1"
-echo "  ➤ sim_vehicle.py -v ArduCopter -f gazebo-iris -I0 --console --model JSON"
-echo ""
-echo "📌 Terminal 3: Start ArduCopter Instance 2"
-echo "  ➤ sim_vehicle.py -v ArduCopter -f gazebo-iris -I1 --console --model JSON"
-echo "-------------------------------------------------"
-echo "🚀 Happy Simulating!"
