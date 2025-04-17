@@ -2,7 +2,6 @@ import time
 import threading
 from pymavlink import mavutil
 import drone_commands
-
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
