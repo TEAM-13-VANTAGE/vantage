@@ -11,6 +11,7 @@ PORT_NAME = '/dev/ttyUSB0'  # Replace as needed
 # === LiDAR Functions ===
 def connect_lidar(port=PORT_NAME):
     try:
+        print("Connecting to LiDAR...")
         lidar = RPLidar(port)
         print("LiDAR connected.")
         return lidar

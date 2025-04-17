@@ -59,13 +59,29 @@ for title in all_titles
     results = vcat(all_data...)
     convert_df_units_from_std(results, units)
 
-    filename = "/results/round1/$title-results.csv"
-    if !isfile(filename)
-        touch(filename)
-        println("File created: $filename")
+    base_dir = expanduser("~/vantage/results/$title/")
+    mkpath(base_dir)  
+    
+ 
+    base_filename = joinpath(base_dir, "$title-results.csv")
+    filename = base_filename
+    
+    # Add "-#" suffix if file already exists
+    i = 1
+    while isfile(filename)
+        filename = joinpath(base_dir, "$(title)-results-$(i).csv")
+        i += 1
     end
+    
+    # Create the file if it doesn't exist
+    touch(filename)
+    println("File created: $filename")
+    
+    # Write results
     println("Writing results to file: $filename")
     CSV.write(filename, results)
+    
     next!(progress)
     println("Results have been recorded in: $filename\nSimulation complete")
+    
 end

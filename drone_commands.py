@@ -1,18 +1,79 @@
 import time
 from pymavlink import mavutil
 
+def get_high_fidelity_params(params, maneuver):
+    print("Getting high fidelity parameters...")
+
+    keys = []
+    if maneuver == 'Vertical':
+        keys = [
+            "step", "contactLevel", "scenario", "drone_ascent_rate",
+            "drone_direction", "drone_response_distance", "drone_speed",
+            "drone_x_pos", "drone_y_pos", "heli_speed", "min_dist"
+        ]
+    elif maneuver == 'Horizontal':
+        keys = [
+            "step", "contactLevel", "scenario", "drone_direction", "drone_horizontal_turn_angle", "drone_horizontal_turn_rate", 
+            "drone_response_distance", "drone_speed", "drone_x_pos", "drone_y_pos", "heli_speed", "min_dist"
+        ]
+    elif maneuver == 'Row':
+        keys = [
+            "step", "contactLevel", "scenario", "drone_direction", "drone_horizontal_turn_angle", "drone_horizontal_turn_rate",
+            "drone_response_distance", "drone_speed", "drone_x_pos", "drone_y_pos", "force_right_turn", "heli_speed", "min_dist"
+        ]
+    else:
+        raise ValueError("Invalid maneuver type. Must be 'Vertical', 'Horizontal', or 'Row'.")
+
+    if len(params) < len(keys):
+        raise IndexError(
+            f"Not enough parameters. Expected {len(keys)} but got {len(params)}.\n"
+            f"Maneuver: {maneuver}\n"
+            f"Params: {params}"
+        )
+
+    hf_params = {key: params[i] for i, key in enumerate(keys)}
+    print("High fidelity parameters obtained!")
+    return hf_params
+
+
 def launch_drone(master):
     # Define the GUIDED mode
+    print("Setting drone to GUIDED mode...")
     GUIDED_MODE = 'GUIDED'
 
     # Set the mode to GUIDED
     master.set_mode(GUIDED_MODE)
+    
+    time.sleep(2)
+    
+    # Wait for the drone to be arm
+    arm_until_success(master)
+    print("Drone Armed")
+
     time.sleep(2)
 
-    # Arm the drone
-    master.arducopter_arm()
-    master.motors_armed_wait()
-    print("Drone" + id +  "Armed")
+def arm_until_success(master, timeout=300, retry_interval=15):
+    print("Attempting to arm drone...")
+
+    start_time = time.time()
+    while time.time() - start_time < timeout:
+        # Send arming command
+        master.arducopter_arm()
+        print("Sent arming command.")
+
+        # Wait a moment for the vehicle to respond
+        time.sleep(retry_interval)
+
+        # Check arming status
+        hb = master.recv_match(type='HEARTBEAT', blocking=True, timeout=1)
+        if hb and hb.base_mode & mavutil.mavlink.MAV_MODE_FLAG_SAFETY_ARMED:
+            print("Motors are armed.")
+            return True
+
+    print("Failed to arm within timeout.")
+    return False
+
+
 
 def drone_takeoff(master, height):
     # Take off to 10 meters
@@ -22,9 +83,7 @@ def drone_takeoff(master, height):
         0,
         0, 0, 0, 0, 0, 0, 10
 )
-    print("Drone" + id +  "takeoff to" + height + "meters")
-    
-    return
+    print("Drone takeoff to " + str(height) + " meters")
 
 
 #Parameters:
@@ -61,12 +120,11 @@ def send_position_target_local_ned(master,
     time_boot_ms, target_system, target_component, coordinate_frame=1,
     type_mask=0b110111000000, x=0, y=0, z=0, vx=0, vy=0, vz=0, afx=0, afy=0, afz=0, yaw=0, yaw_rate=0
 ):
-
-    master.mav.command_long_send(
-        master.target_system, master.target_component,
-        mavutil.mavlink.SET_POSITION_TARGET_LOCAL_NED,
+    print("sending position target local NED...")
+    master.mav.set_position_target_local_ned_send(
         time_boot_ms, target_system, target_component, coordinate_frame,
         type_mask, x, y, z, vx, vy, vz, afx, afy, afz, yaw, yaw_rate
     )
-    return
+    print("Position target local NED sent.")
+    
     
