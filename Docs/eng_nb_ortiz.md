@@ -188,7 +188,9 @@ esesntially we got the issue fixed recently and now we are almost done with the 
 I will wait on the meeting on the 8th and further report for it.
 
 
-Thursday 10 and frday the 11th: mostly coding and figuring a way to export the flioght pattern from gazebo to a bin file and from bin to CSV. This has also been the goal of the weekend a lot to work on still not really sure If i can get it to work in time.
+Thursday 10 and Friday the 11th: mostly coding and figuring a way to export the flioght pattern from gazebo to a bin file and from bin to CSV. This has also been the goal of the weekend a lot to work on still not really sure If i can get it to work in time.
+
+Past weekend was working into the Bin to CSV files, we got it working the 14th and 15th. We just need t compare values and run parameter values.
 
 
 
