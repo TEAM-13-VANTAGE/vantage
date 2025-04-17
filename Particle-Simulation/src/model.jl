@@ -1,10 +1,11 @@
-
-
 using Agents
 using LinearAlgebra
 
 export init_base_model
-# everything is in feet, seconds, and radians
+
+# Helper function to ensure bounds are divisible by spacing
+round_up_to_multiple(val, base) = ceil(val / base) * base
+
 function init_base_model(;
     drone_speed=55.0,
     heli_speed=115.0,
@@ -26,13 +27,10 @@ function init_base_model(;
     drone_initial_vars::Optional{Dict}=nothing,
     heli_initial_vars::Optional{Dict}=nothing,
 )
-    """
-    Defaults to canonical head-on initial state
-    """
+    # Initializes the simulation model with default or user-defined parameters.
+    # Ensures the bounds are divisible by spacing to avoid initialization errors.
 
-    bounds_x = isnothing(bounds_x) ? BOUNDS_X : bounds_x
-    bounds_y = isnothing(bounds_y) ? BOUNDS_Y : bounds_y
-    bounds_altitude = isnothing(bounds_altitude) ? BOUNDS_ALTITUDE : bounds_altitude
+    # Set fallback values
     drone_initial_vars = isnothing(drone_initial_vars) ? Dict() : drone_initial_vars
     heli_initial_vars = isnothing(heli_initial_vars) ? Dict() : heli_initial_vars
     drone_initial_state = isnothing(drone_initial_state) ? IDLE : drone_initial_state
@@ -40,8 +38,15 @@ function init_base_model(;
     heli_x_pos = isnothing(heli_x_pos) ? 100.0 : heli_x_pos
     heli_y_pos = isnothing(heli_y_pos) ? BOUNDS_Y / 2 : heli_y_pos
 
+    # Round bounds to be divisible by 200
+    margin = 500.0
+    bounds_x = isnothing(bounds_x) ? round_up_to_multiple(max(drone_x_pos, heli_x_pos) + margin, 200) : bounds_x
+    bounds_y = isnothing(bounds_y) ? round_up_to_multiple(max(drone_y_pos, heli_y_pos) + margin, 200) : bounds_y
+    bounds_altitude = isnothing(bounds_altitude) ? round_up_to_multiple(max(drone_altitude, heli_altitude) + margin, 200) : bounds_altitude
+
     bounds = (bounds_x, bounds_y, bounds_altitude)
     space = ContinuousSpace(bounds; spacing=200, periodic=false)
+
     model = StandardABM(
         Vehicle,
         space;
@@ -52,7 +57,6 @@ function init_base_model(;
     drone_vel = get_vel(drone_θ, drone_ϕ, Float64(drone_speed))
 
     heli_pos = (heli_x_pos, heli_y_pos, heli_altitude)
-    # heli_pos = (heli_y_pos, heli_x_pos, heli_altitude)
     heli_vel = get_vel(heli_θ, heli_ϕ, Float64(heli_speed))
 
     add_agent!(
@@ -80,4 +84,3 @@ function init_base_model(;
 
     return model
 end
-
