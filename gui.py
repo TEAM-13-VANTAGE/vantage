@@ -2,8 +2,11 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import csv
+
+from julia.api import Julia
+Julia(compiled_modules=False)
+
 from julia import Main
-import julia
 from PyQt5 import QtWidgets, QtGui, QtCore
 import time
 import subprocess
@@ -160,7 +163,6 @@ class SimulationApp(QtWidgets.QWidget):
         if not self.julia_initialized:
             self.output_log.append("Initializing Julia...")
             try:
-                julia.Julia(compiled_modules=False)  # Initialize Julia
                 Main.eval('using Pkg')
                 Main.eval('Pkg.activate("./Particle-Simulation")')
                 Main.eval('Pkg.instantiate()')
