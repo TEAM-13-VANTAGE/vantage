@@ -188,9 +188,49 @@ sleep 1
 colcon build --packages-up-to ardupilot_gz_bringup
 sleep 1
 
+export LIBGL_ALWAYS_SOFTWARE=1
+
+# -------------------------------
+# Install Julia
+# -------------------------------
+echo "------ Installing Julia ------"
+curl -fsSL https://install.julialang.org | sh
+. /home/ubuntu/.bashrc
+cd ~/vantage
+julia -e 'using Pkg; Pkg.add("PyCall")'
+cd ~/vantage/Particle-Simulation
+julia --project=. -e 'using Pkg; Pkg.instantiate()'
+
+# -------------------------------
+# Install Python Dependencies
+# -------------------------------
+echo "------ Installing Python Dependencies ------"
+cd ~/vantage
+pip install -r requirements.txt
+pip install pandas julia pyjulia
+# Remove local pip version
+pip uninstall -y matplotlib
+
+# Remove system version (optional but safer to remove conflict)
+sudo apt remove -y python3-matplotlib
+
+# Reinstall only pip version
+pip install matplotlib --upgrade
+
+cd 
+
+
 # Finalize Environment Setup
+echo "------ Finalizing set up ------"
 echo "source ~/ardu_ws/install/setup.bash" >> ~/.bashrc
+echo 'export PATH=$HOME/ardu_ws/src/ardupilot/Tools/autotest:$PATH' >> ~/.bashrc
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
 source ~/.bashrc
+source ~/.profile
 sleep 1
+cp -r ~/vantage/ubuntu_files/worlds ~/ardu_ws/install/ardupilot_gz_gazebo/share/ardupilot_gz_gazebo/
+cp -r ~/vantage/ubuntu_files/models ~/ardu_ws/install/ardupilot_gz_description/share/ardupilot_gz_description/
+
+
 
 echo "✅ Installation Complete!"

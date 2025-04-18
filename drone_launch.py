@@ -36,7 +36,7 @@ def init_drone_0(params, maneuver):
             print(f"🛰️ Obstacle: {direction}")
 
             if direction != 'none':
-                print(f"⚠️ Avoiding {direction}")
+                print(f"Avoiding {direction}")
                 lidar_avoidance.perform_avoidance(master, direction)
             else:
                 lidar_avoidance.send_position_command(master, x_pos, y_pos, drone_speed)
