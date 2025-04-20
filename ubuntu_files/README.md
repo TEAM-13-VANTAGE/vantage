@@ -19,10 +19,12 @@ As of now, these files are compatible only with Ubuntu 22.04, ROS2 Humble, and G
         ```
      - **Terminal 2**: Run
         ```bash
+        . ~/.profile
         sim_vehicle.py -v ArduCopter -f gazebo-iris -I0 --console --model JSON
         ```
      - **Terminal 3**: Run
         ```bash
+        . ~/.profile
         sim_vehicle.py -v ArduCopter -f gazebo-iris -I1 --console --model JSON
         ```
 5. The installation is successful if the system opens these three tabs and the console does not say `link 1 down`. _If this is not the case, redo step 3._
@@ -35,5 +37,18 @@ As of now, these files are compatible only with Ubuntu 22.04, ROS2 Humble, and G
 
 8. Run the following command to start the system:
      ```bash
-     python3 gui.py
+     cd vantage
+     julia
+     ```
+     Inside the Julia prompt, enter the following: 
+     ```julia
+    import Pkg; Pkg.add("PyCall")
+     ```
+     Once PyCall is installed, exit the Julia environment:  
+     ```julia
+     exit()
+     ```
+     Now in your shell, run: 
+     ```bash
+     python-jl gui.py
      ```
