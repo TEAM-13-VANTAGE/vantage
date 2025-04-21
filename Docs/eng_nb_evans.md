@@ -146,5 +146,69 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Met with PO and TA <br>
 - Worked on running round1 headon sims on Python Controller task <br>
 
+## 2/25/2025
+- Met with PO and TA <br>
+- Collaborated with the team on integrating Julia with Python <br>
+- Worked on setting up and testing Gazebo simulation environment on Ubuntu 22.04 <br>
+
+## 2/27/2025
+- Met with PO and TA <br>
+- Worked on gui.py <br>
+
+## 3/4/2025
+- Met with PO and TA <br>
+- Worked on round1 sims with Jack <br>
+
+## 3/6/2025
+- Met with PO and TA <br>
+- Discussed with team upgrading to Ubuntu 22.04 to resolve Gazebo compatibility issues <br>
+
+## 3/8 - 3/16 
+- Spring Break <br>
+- At work <br>
+
+## 3/18/2025
+- Met with PO and TA <br>
+- Back from break, discussed plan for next sprints <br>
+- Transitioned from 20.04 to 22.04 <br>
+
+## 3/20/2025
+- Met with PO and TA <br>
+- Worked with Jim to use his new installation <br>
+
+## 3/25/2025
+- Was out of town visiting family over the weekend and got back after class <br>
+
+## 3/27/2025
+- Met with PO and TA <br>
+- Observed Jack's results table <br>
+
+## 4/1/2025
+- Met with PO and TA <br>
+- Discussed the remaining time and assignments/goals left with the team and planned accordingly <br>
+- Planned out when to work on the documentation <br>
+
+## 4/3/2025
+- Met with PO and TA <br>
+- Worked on STP v2 and poster v2 <br>
+
+## 4/8/2025
+- Met with PO and TA <br>
+- Worked on STP v2 <br>
+
+## 4/10/2025
+- Met with PO and TA <br>
+- Worked on STP v2 and video v2 script <br>
+- The team presented the GUI to PO and TA <br>
+
+## 4/15/2025
+- Met with PO and TA <br>
+- Worked on STP v2 <br>
+
+## 4/17/2025
+- Met with PO and TA <br>
+- Worked on poster v2 <br>
+
+
 
 
