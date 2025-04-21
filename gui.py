@@ -12,6 +12,8 @@ import time
 import subprocess
 import drone_launch
 import visualize
+import threading
+import drone_commands
 
 class SimulationApp(QtWidgets.QWidget):
     def __init__(self):
@@ -279,7 +281,12 @@ class SimulationApp(QtWidgets.QWidget):
     def launch_high_fidelity_simulation(self):
         """Launch Gazebo, ArduCopter, and MAVProxy."""
         try:
-
+            print("Updating sdf file with drone parameters...")
+            path = os.path.expanduser("~/ardu_ws/install/ardupilot_gz_gazebo/share/ardupilot_gz_gazebo/worlds/iris_runway.sdf")
+            drone_commands.update_runway_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7]), float(self.high_fidelity_parameters[0][8]))
+            drone_commands.update_drone_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7])-10, float(self.high_fidelity_parameters[0][8]), "iris")
+            drone_commands.update_drone_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7])+10, float(self.high_fidelity_parameters[0][8]), "iris_2")
+            self.output_log.append("SDF file updated with drone parameters.")
             self.output_log.append("Launching high-fidelity module...")
             subprocess.run(['chmod', '+x', 'run_program.sh'], check=True)
             subprocess.run(['./run_program.sh'], check=True)

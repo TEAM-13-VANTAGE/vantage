@@ -32,17 +32,6 @@ class LidarProcessor(Node):
         return 'none'
 
 
-    def send_position_command(master, x, y, vx):
-        drone_commands.send_position_target_local_ned(
-            master=master,
-            time_boot_ms=int(time.time() * 1000) & 0xFFFFFFFF,
-            target_system=master.target_system,
-            target_component=master.target_component,
-            coordinate_frame=1,
-            type_mask=0b110111000000,
-            x=x, y=y, z=-10,
-            vx=vx
-        )
 
     def perform_avoidance(master, direction):
         if direction == 'front' or direction == 'left':

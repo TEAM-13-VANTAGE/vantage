@@ -2,10 +2,10 @@ import time
 from pymavlink import mavutil
 import drone_commands
 import lidar_avoidance
-    
-# === MAVLink logic ===
+import csv
+
 def init_drone_0(params, maneuver):
-    # Fetch scenario parameters
+    # Fetch scenario parametersz
     hf_params = drone_commands.get_high_fidelity_params(params, maneuver)
     x_pos = float(hf_params['drone_x_pos'])
     y_pos = float(hf_params['drone_y_pos'])
@@ -19,10 +19,18 @@ def init_drone_0(params, maneuver):
     print("Heartbeat received.")
     time.sleep(10)
 
+    # Launch the drone
     print("Launching Drone...")
     drone_commands.launch_drone(master)
-
-    lidar_avoidance.send_position_command(master, x_pos, y_pos, drone_speed)
+    drone_commands.drone_takeoff(master, 10)
+    drone_commands.send_position_target_local_ned(master=master,
+    time_boot_ms=int(time.time() * 1000) & 0xFFFFFFFF,
+    target_system=master.target_system,
+    target_component=master.target_component,
+    coordinate_frame=1,  # MAV_FRAME_LOCAL_NED
+    type_mask=0b110111000000,  # Position only
+    x=x_pos, y=y_pos, z=-10,  # NED => z = -altitude
+    vx=drone_speed)
 
     # Start ROS 2 node in background thread
     lidar_avoidance.rclpy.init()
@@ -30,22 +38,51 @@ def init_drone_0(params, maneuver):
     executor_thread = lidar_avoidance.threading.Thread(target=lidar_avoidance.rclpy.spin, args=(lidar_node,), daemon=True)
     executor_thread.start()
 
-    try:
-        while True:
-            direction = lidar_node.get_obstacle_direction()
-            print(f"🛰️ Obstacle: {direction}")
 
-            if direction != 'none':
-                print(f"Avoiding {direction}")
-                lidar_avoidance.perform_avoidance(master, direction)
-            else:
-                lidar_avoidance.send_position_command(master, x_pos, y_pos, drone_speed)
+    with open("drone0_telemetry.csv", "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Time", "x", "y", "z", "speed", "collision_violation", "direction"])
+        try:
+            while True:
+                direction = lidar_node.get_obstacle_direction()
+                violation = direction != 'none'
 
-            time.sleep(1)
+                # Read telemetry
+                msg = master.recv_match(type='LOCAL_POSITION_NED', blocking=False)
+                if msg:
+                    x = msg.x
+                    y = msg.y
+                    z = msg.z
+                    vx = msg.vx
+                    vy = msg.vy
+                    vz = msg.vz
+                    speed = (vx**2 + vy**2 + vz**2)**0.5
 
-    except KeyboardInterrupt:
-        print("\nShutting down.")
-        lidar_avoidance.rclpy.shutdown()
+                    # Print and log
+                    print(f"[Telemetry] x: {x:.2f} | y: {y:.2f} | z: {z:.2f} | speed: {speed:.2f} | obstacle: {direction}")
+                    writer.writerow([time.time(), x, y, z, speed, violation, direction])
+
+                # Handle avoidance
+                if violation:
+                    print(f"Avoiding {direction}")
+                    lidar_avoidance.perform_avoidance(master, direction)
+                else:
+                    drone_commands.send_position_target_local_ned(
+                        master=master,
+                        time_boot_ms=int(time.time() * 1000) & 0xFFFFFFFF,
+                        target_system=master.target_system,
+                        target_component=master.target_component,
+                        coordinate_frame=1,
+                        type_mask=0b100111000111,
+                        x=x_pos, y=y_pos, z=-10,
+                        vx=drone_speed
+                    )
+
+                time.sleep(1)
+        except KeyboardInterrupt:
+            print("Shutting down")
+            lidar_avoidance.rclpy.shutdown()
+
 
 
 # Initialize the connection to the drone
@@ -64,7 +101,7 @@ def init_drone_1(params, maneuver):
     print("Heartbeat received from Drone 1")
     time.sleep(10)
     drone_commands.launch_drone(master)
-    # drone_commands.drone_takeoff(master, 10)
+    drone_commands.drone_takeoff(master, 10)
     drone_commands.send_position_target_local_ned(
     master=master,
     time_boot_ms=int(time.time() * 1000) & 0xFFFFFFFF,
