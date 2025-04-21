@@ -35,7 +35,7 @@ As of now, these files are compatible only with Ubuntu 22.04, ROS2 Humble, and G
 
 7. Press `Ctrl+C` on all terminals and close them.
 
-8. Run the following command to start the system:
+8. Run the following command if you are having issues with Julia:
      ```bash
      cd vantage
      julia
@@ -50,5 +50,5 @@ As of now, these files are compatible only with Ubuntu 22.04, ROS2 Humble, and G
      ```
      Now in your shell, run: 
      ```bash
-     python-jl gui.py
+     python3 gui.py
      ```
