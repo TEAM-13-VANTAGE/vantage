@@ -287,12 +287,32 @@ class SimulationApp(QtWidgets.QWidget):
             drone_commands.update_drone_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7])-10, float(self.high_fidelity_parameters[0][8]), "iris")
             drone_commands.update_drone_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7])+10, float(self.high_fidelity_parameters[0][8]), "iris_2")
             self.output_log.append("SDF file updated with drone parameters.")
+           
+           # Launch Gazebo and ArduCopter
             self.output_log.append("Launching high-fidelity module...")
             subprocess.run(['chmod', '+x', 'run_program.sh'], check=True)
             subprocess.run(['./run_program.sh'], check=True)
             time.sleep(3)
-            drone_launch.init_drone_0(self.high_fidelity_parameters[0], self.params_options.currentText())
-            drone_launch.init_drone_1(self.high_fidelity_parameters[0], self.params_options.currentText())
+            
+            
+           # Define threads
+            
+            drone0_thread = threading.Thread(
+                target=drone_launch.init_drone_0,
+                args=(self.high_fidelity_parameters[0], self.params_options.currentText())
+            )
+            
+            drone1_thread = threading.Thread(
+                target=drone_launch.init_drone_1,
+                args=(self.high_fidelity_parameters[0], self.params_options.currentText())
+            )
+
+            # Start both simultaneously
+            self.output_log.append("Launching drone 0...")
+            drone0_thread.start()
+            time.sleep(2)  # Ensure some delay before starting the second drone
+            self.output_log.append("Launching drone 1...")
+            drone1_thread.start()
             self.output_log.append("High-fidelity module launched successfully.")
 
         except subprocess.CalledProcessError as e:

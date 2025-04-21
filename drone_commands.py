@@ -79,7 +79,7 @@ def update_runway_pose_in_sdf(file_path, new_x, new_y):
         lines = file.readlines()
 
     for i in range(len(lines)):
-        if "<uri>model://</uri>" in lines[i]:
+        if "<uri>model://runway</uri>" in lines[i]:
             # Search within a few lines after this to find the <pose> tag
             for j in range(i, i + 5):
                 if "<pose" in lines[j]:
