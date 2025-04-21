@@ -80,7 +80,7 @@
         <include>
       <uri>model://iris_with_lidar_2</uri>
       <name>iris_2</name>
-      <pose degrees="true">0 5 0.195 0 0 90</pose>
+      <pose degrees="true">0 5 0.195 0 0 -90</pose>
     </include>
     
 
