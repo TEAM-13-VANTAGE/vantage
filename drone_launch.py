@@ -7,8 +7,6 @@ import csv
 def init_drone_0(params, maneuver):
     # Fetch scenario parametersz
     hf_params = drone_commands.get_high_fidelity_params(params, maneuver)
-    x_pos = float(hf_params['drone_x_pos'])
-    y_pos = float(hf_params['drone_y_pos'])
     drone_speed = float(hf_params['drone_speed'])
 
     # Connect to drone
@@ -29,7 +27,7 @@ def init_drone_0(params, maneuver):
     target_component=master.target_component,
     coordinate_frame=1,  # MAV_FRAME_LOCAL_NED
     type_mask=0b110111000000,  # Position only
-    x=x_pos, y=y_pos, z=-10,  # NED => z = -altitude
+    x=0, y=0, z=-10,  # NED => z = -altitude
     vx=drone_speed)
 
     # Start ROS 2 node in background thread
@@ -74,7 +72,7 @@ def init_drone_0(params, maneuver):
                         target_component=master.target_component,
                         coordinate_frame=1,
                         type_mask=0b100111000111,
-                        x=x_pos, y=y_pos, z=-10,
+                        x=0, y=0, z=-10,
                         vx=drone_speed
                     )
 
@@ -89,8 +87,6 @@ def init_drone_0(params, maneuver):
 def init_drone_1(params, maneuver):
     print("Initializing Drone 1...")
     hf_params = drone_commands.get_high_fidelity_params(params, maneuver)
-    x_pos = float(hf_params['drone_x_pos'])
-    y_pos = float(hf_params['drone_y_pos'])
     heli_speed = float(hf_params['heli_speed'])
     
     port = 14560
@@ -109,7 +105,7 @@ def init_drone_1(params, maneuver):
     target_component=master.target_component,
     coordinate_frame=1,  # MAV_FRAME_LOCAL_NED
     type_mask=0b110111000000,  # Position only
-    x=x_pos, y=y_pos, z=-10,  # NED => z = -altitude
+    x=0, y=0, z=-10,  # NED => z = -altitude
     vx=heli_speed
 )
     time.sleep(1)

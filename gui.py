@@ -14,6 +14,7 @@ import drone_launch
 import visualize
 import threading
 import drone_commands
+from decimal import Decimal, ROUND_HALF_UP
 
 class SimulationApp(QtWidgets.QWidget):
     def __init__(self):
@@ -277,16 +278,24 @@ class SimulationApp(QtWidgets.QWidget):
                 csv_file.close()
         except Exception as e:
             self.output_log.append(f"Error parsing CSV file: {str(e)}")
+            
+    def round_to_2(val):
+        """Rounds a float to two decimal places."""
+        return float(Decimal(str(val)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
 
     def launch_high_fidelity_simulation(self):
         """Launch Gazebo, ArduCopter, and MAVProxy."""
         try:
-            print("Updating sdf file with drone parameters...")
-            path = os.path.expanduser("~/ardu_ws/install/ardupilot_gz_gazebo/share/ardupilot_gz_gazebo/worlds/iris_runway.sdf")
-            drone_commands.update_runway_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7]), float(self.high_fidelity_parameters[0][8]))
-            drone_commands.update_drone_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7])-10, float(self.high_fidelity_parameters[0][8]), "iris")
-            drone_commands.update_drone_pose_in_sdf(path,float(self.high_fidelity_parameters[0][7])+10, float(self.high_fidelity_parameters[0][8]), "iris_2")
-            self.output_log.append("SDF file updated with drone parameters.")
+            # print("Updating sdf file with drone parameters...")
+            # path = os.path.expanduser("~/ardu_ws/install/ardupilot_gz_gazebo/share/ardupilot_gz_gazebo/worlds/iris_runway.sdf")
+            # x_base = self.round_to_2(self.high_fidelity_parameters[0][7])
+            # y_base = self.round_to_2(self.high_fidelity_parameters[0][8])
+
+            # drone_commands.update_runway_pose_in_sdf(path, x_base, y_base)
+            # drone_commands.update_drone_pose_in_sdf(path, x_base - 5, y_base, "iris")
+            # drone_commands.update_drone_pose_in_sdf(path, x_base + 5, y_base, "iris_2")
+
+            # self.output_log.append("SDF file updated with drone parameters.")
            
            # Launch Gazebo and ArduCopter
             self.output_log.append("Launching high-fidelity module...")
@@ -310,7 +319,7 @@ class SimulationApp(QtWidgets.QWidget):
             # Start both simultaneously
             self.output_log.append("Launching drone 0...")
             drone0_thread.start()
-            time.sleep(2)  # Ensure some delay before starting the second drone
+            time.sleep(4)  # Ensure some delay before starting the second drone
             self.output_log.append("Launching drone 1...")
             drone1_thread.start()
             self.output_log.append("High-fidelity module launched successfully.")
@@ -501,7 +510,9 @@ class SimulationApp(QtWidgets.QWidget):
         self.proxy_model.setSourceModel(self.model)
         self.proxy_model.setFilterKeyColumn(-1)
         self.table_view.setModel(self.proxy_model)
-
+        
+    
+   
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = SimulationApp()

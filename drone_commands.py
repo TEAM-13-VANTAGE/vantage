@@ -74,51 +74,51 @@ def arm_until_success(master, timeout=300, retry_interval=15):
     print("Failed to arm within timeout.")
     return False
 
-def update_runway_pose_in_sdf(file_path, new_x, new_y):
-    with open(file_path, "r") as file:
-        lines = file.readlines()
+# def update_runway_pose_in_sdf(file_path, new_x, new_y):
+#     with open(file_path, "r") as file:
+#         lines = file.readlines()
 
-    for i in range(len(lines)):
-        if "<uri>model://runway</uri>" in lines[i]:
-            # Search within a few lines after this to find the <pose> tag
-            for j in range(i, i + 5):
-                if "<pose" in lines[j]:
-                    parts = lines[j].split(">")
-                    pose_data = parts[1].split("<")[0].split()
-                    pose_data[0] = str(new_x)
-                    pose_data[1] = str(new_y)
-                    new_pose = " ".join(pose_data)
-                    lines[j] = f'      <pose degrees="true">{new_pose}</pose>\n'
-                    break
-            break
+#     for i in range(len(lines)):
+#         if "<uri>model://runway</uri>" in lines[i]:
+#             # Search within a few lines after this to find the <pose> tag
+#             for j in range(i, i + 5):
+#                 if "<pose" in lines[j]:
+#                     parts = lines[j].split(">")
+#                     pose_data = parts[1].split("<")[0].split()
+#                     pose_data[0] = str(new_x)
+#                     pose_data[1] = str(new_y)
+#                     new_pose = " ".join(pose_data)
+#                     lines[j] = f'      <pose degrees="true">{new_pose}</pose>\n'
+#                     break
+#             break
 
-    with open(file_path, "w") as file:
-        file.writelines(lines)
+#     with open(file_path, "w") as file:
+#         file.writelines(lines)
 
-    print(f"Updated runway pose to x={new_x}, y={new_y}")
+#     print(f"Updated runway pose to x={new_x}, y={new_y}")
 
-def update_drone_pose_in_sdf(file_path, new_x, new_y, drone_name):
-    with open(file_path, "r") as file:
-        lines = file.readlines()
+# def update_drone_pose_in_sdf(file_path, new_x, new_y, drone_name):
+#     with open(file_path, "r") as file:
+#         lines = file.readlines()
 
-    for i in range(len(lines)):
-        if f"<name>{drone_name}</name>" in lines[i]:
-            # Search within a few lines after this to find the <pose> tag
-            for j in range(i, i + 5):
-                if "<pose" in lines[j]:
-                    parts = lines[j].split(">")
-                    pose_data = parts[1].split("<")[0].split()
-                    pose_data[0] = str(new_x)
-                    pose_data[1] = str(new_y)
-                    new_pose = " ".join(pose_data)
-                    lines[j] = f'      <pose degrees="true">{new_pose}</pose>\n'
-                    break
-            break
+#     for i in range(len(lines)):
+#         if f"<name>{drone_name}</name>" in lines[i]:
+#             # Search within a few lines after this to find the <pose> tag
+#             for j in range(i, i + 5):
+#                 if "<pose" in lines[j]:
+#                     parts = lines[j].split(">")
+#                     pose_data = parts[1].split("<")[0].split()
+#                     pose_data[0] = str(new_x)
+#                     pose_data[1] = str(new_y)
+#                     new_pose = " ".join(pose_data)
+#                     lines[j] = f'      <pose degrees="true">{new_pose}</pose>\n'
+#                     break
+#             break
 
-    with open(file_path, "w") as file:
-        file.writelines(lines)
+#     with open(file_path, "w") as file:
+#         file.writelines(lines)
 
-    print(f"Updated pose of {drone_name} to x={new_x}, y={new_y}")
+#     print(f"Updated pose of {drone_name} to x={new_x}, y={new_y}")
 
 
 def drone_takeoff(master, height, timeout=30):
