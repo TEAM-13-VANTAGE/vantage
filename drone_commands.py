@@ -162,7 +162,7 @@ def drone_takeoff(master, height, timeout=30):
     # Use Pos+Vel : 0b110111000000 / 0x0DC0 / 3520 (decimal)
     # Use Pos+Vel+Accel : 0b110000000000 / 0x0C00 / 3072 (decimal)
     # Use Yaw : 0b100111111111 / 0x09FF / 2559 (decimal)
-    # Use Yaw Rate : 0b010111111111 / 0x05FF / 1535 (decimal)
+    # Use Yaw Rate : 0b010111111111 / 0x05FF / 1535 (decimal)ex
 # 6. x: X position in meters (positive is forward or North)
 # 7. y: Y position in meters (positive is right or East)
 # 8. z: Z position in meters (positive is down)

@@ -33,11 +33,14 @@ class LidarProcessor(Node):
 
 
 
-    def perform_avoidance(master, direction):
+    def perform_avoidance(master, direction, yaw_rate=0.5):
+        
         if direction == 'front' or direction == 'left':
-            yaw_rate = -0.5  # Turn right
+            yaw = yaw_rate  # Turn right
+            print (f"Performing avoidance. Turning right with yaw rate: {yaw}")
         elif direction == 'right':
-            yaw_rate = 0.5   # Turn left
+            yaw = yaw_rate  # Turn left
+            print (f"Performing avoidance. Turning left with yaw rate: {yaw}")
         else:
             return
 
@@ -49,5 +52,5 @@ class LidarProcessor(Node):
             0b110111111000,  # Only angular.z enabled
             0, 0, 0,         # Position
             0, 0, 0,         # Velocity
-            0, 0, yaw_rate   # Acceleration & yaw rate
+            0, 0, yaw   # Acceleration & yaw rate
         )

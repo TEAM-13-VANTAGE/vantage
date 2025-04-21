@@ -8,7 +8,7 @@ def init_drone_0(params, maneuver):
     # Fetch scenario parametersz
     hf_params = drone_commands.get_high_fidelity_params(params, maneuver)
     drone_speed = float(hf_params['drone_speed'])
-
+    print(f"Drone speed: {drone_speed} m/s")
     # Connect to drone
     port = 14550
     master = mavutil.mavlink_connection(f'udp:127.0.0.1:{port}')
@@ -88,6 +88,7 @@ def init_drone_1(params, maneuver):
     print("Initializing Drone 1...")
     hf_params = drone_commands.get_high_fidelity_params(params, maneuver)
     heli_speed = float(hf_params['heli_speed'])
+    print(f"Helicopter speed: {heli_speed} m/s")
     
     port = 14560
     master = mavutil.mavlink_connection('udp:127.0.0.1:' + str(port))  # Replace with your connection string
@@ -98,16 +99,14 @@ def init_drone_1(params, maneuver):
     time.sleep(10)
     drone_commands.launch_drone(master)
     drone_commands.drone_takeoff(master, 10)
-    drone_commands.send_position_target_local_ned(
-    master=master,
+    drone_commands.send_position_target_local_ned(master=master,
     time_boot_ms=int(time.time() * 1000) & 0xFFFFFFFF,
     target_system=master.target_system,
     target_component=master.target_component,
     coordinate_frame=1,  # MAV_FRAME_LOCAL_NED
     type_mask=0b110111000000,  # Position only
     x=0, y=0, z=-10,  # NED => z = -altitude
-    vx=heli_speed
-)
+    vx=heli_speed)
     time.sleep(1)
     
 

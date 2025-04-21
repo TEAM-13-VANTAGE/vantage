@@ -231,6 +231,7 @@ source ~/.profile
 sleep 1
 cp -r ~/vantage/ubuntu_files/worlds ~/ardu_ws/install/ardupilot_gz_gazebo/share/ardupilot_gz_gazebo/
 cp -r ~/vantage/ubuntu_files/models ~/ardu_ws/install/ardupilot_gz_description/share/ardupilot_gz_description/
+cp -r ~/vantage/ubuntu_files/models ~/.gz/sim/8
 
 
 
