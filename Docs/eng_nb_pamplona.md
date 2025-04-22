@@ -195,6 +195,44 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 ### 3/27/2025
 - Not much, getting cooked by other classes :,)
 
+## Sprint 6
+### 4/1/2025
+- Worked on drone commands script
+- Was having difficulties due to finnicky depenedencies (Again)
+
+### 4/3/2025
+- Debugged drone commands script as they were not pinging the drones
+- Finalized translating the parameters to high-fidelity module
+  - Positional parameters weren't needed anymore as it wasn't necessary for testing.
+
+### 4/8/2025
+- Implemented drone commands script along with parameter conversion successfully
+- Found more issues with implementation within the Julia side, started debugging
+
+### 4/10/2025
+- Updated Install Script and README to assist users with installing the system
+- Finalized drone commands script, and the drones are fully functioning!
+<img width="953" alt="Screenshot 2025-04-22 at 2 56 11 PM" src="https://github.com/user-attachments/assets/fb600cb9-e335-4b9a-bf65-5cfce6d8cf43" />
+
+### 4/15/2025
+- Started object avoidance implementation, had to do a lot of research still
+- Debugged ROS2 dependency as its important to LiDAR
+
+### 4/17/2025
+- Worked on object avoidance, still not working properly
+- Updated Install Script and README
+- Helped finalize the Poster
+
+### 4/22/2025
+- Still working on object avoidance, having difficulties
+- Finalized the Install Script and README, so it is easier to install and implement on any UBUNTU 22.04 machine
+- Finalized poster for real this time
+
+### 4/25/2025
+
+
+
+
   
 
 
