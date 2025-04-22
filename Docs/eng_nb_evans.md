@@ -209,6 +209,9 @@ Worked on installing and integrating Gazebo Harmonic, SITL, Maxproxy, and Ardupi
 - Met with PO and TA <br>
 - Worked on poster v2 <br>
 
-
-
+## 4/22/2025
+- Met with PO and TA <br>
+- Talked about our poster <br>
+- Demonstrated video of running the simulation <br>
+- Worked on script for video presentation <br>
 
