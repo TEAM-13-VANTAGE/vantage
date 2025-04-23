@@ -193,4 +193,7 @@ Thursday 10 and Friday the 11th: mostly coding and figuring a way to export the 
 Past weekend was working into the Bin to CSV files, we got it working the 14th and 15th. We just need t compare values and run parameter values.
 
 
+The final week is upon us 4.22.2025: nothing really is happening a lot of submissions and well the presentation is thursday.
+
+
 
