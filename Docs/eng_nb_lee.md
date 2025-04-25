@@ -331,3 +331,27 @@
 - Fixed a bug Jim found where imported files didn't appropriately update the UI
 - Fixed a bug I found where the CSV reader would throw errors if it found empty lines while parsing
 - updated this file
+
+## 4/17/2025
+
+- Ran tests from the Test Plan and took screenshots to update the document
+- Filled out the test entries for the tests I ran
+- Fixed a bug in the Julia code where simulation bounds were improperly calculated
+
+## 4/21/2025
+
+- Took screenshots and added them to the poster
+- Changed some language on the Future Work section of the poster
+- Submitted the poster
+
+## 4/22/2025
+
+- Met with Dr. Akbas to discuss the poster, made some last-minute changes and held the printing until they were done
+- Retrieved poster from Wanda's office and stored it in LB131
+
+## 4/24/2025
+
+- Presented the poster with the group
+- Recorded slides 5-8 for the video presentation
+- Completed Peer Evals #2
+- Updated this document
