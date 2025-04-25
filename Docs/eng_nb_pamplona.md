@@ -229,7 +229,9 @@ Was not able to work due to hurricane and me being at the SASE National Conventi
 - Finalized poster for real this time
 
 ### 4/24/2025
-
+- Presented!!!
+- Finalized video
+- great semester yall :D 
 
 
 
